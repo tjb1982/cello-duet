@@ -28,7 +28,7 @@ midi-inst = "cello"
         \layout {
             indent = #25
         }
-        %\midi {}
+        \midi {}
         <<
             \new StaffGroup {
                 <<
@@ -42,7 +42,12 @@ midi-inst = "cello"
                         %\mark \markup { \bold \box A }
                     }
                     \new Staff \with {
-                            instrumentName = #(car (assoc-ref names 'vc2))
+                            instrumentName = \markup {
+                                \column {
+                                    #(car (assoc-ref names 'vc2))
+                                    \line { (A, D, G, B \small \flat) }
+                                }
+                            }
                             shortInstrumentName = #(cadr (assoc-ref names 'vc2))
                             midiInstrument = \midi-inst
                             \RemoveEmptyStaves
