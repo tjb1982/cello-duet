@@ -26,14 +26,18 @@ cello-b = \new Voice \relative c {
     | \time 2/4 c8.~ \< 64 d' ( d a' ) \mf \> \clef "tenor" \appoggiatura { d8 e a g f! } e4 \mp \> (
     | d8 \p ) r8 \clef "bass" \appoggiatura { d8 c d } c8-- \mp \< [ ( r16 b16-- ) ]
     | a8-- ( g,-- \mf ) r g'-- \f
-    | f->-- f,-- \breathe r16 \tuplet 3/2 { g32 \pp \< ( a d ) } \tuplet 3/2 { a'16-- ( b-- d-- ) }
+    | f->-- f,-- \breathe r16 \tuplet 3/2 { g32 \pp \< ( a d } \tuplet 3/2 { a'16-- b-- d-- ) }
     | e16. ( d64 a g32 d a g
         d8 \p \> ) \tuplet 6/4 { a'32 ( d e a cis e }
     \override NoteHead.style = #'harmonic
-    | \clef "treble" <a e'>8_\markup { \small I,II } ) \pp \breathe
+    | \clef "treble" \appoggiatura { a8~ } <a e'>8_\markup { \small I,II } ) \pp \fermata
     \revert NoteHead.style
     r8 \clef "bass" \tuplet 3/2 { a,8-- \downbow \mf \< b-- \upbow ( c!-- ) } 
-    | d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sfz f,,!16
-    | r16 bes'8 bes,16 \tuplet 3/2 { ees,8 ( d'8. ) d'16 }
+    | d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sf f,,!16
+    | r16 bes'8 \sf bes,,16 \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
+    | \acciaccatura { gis } a4. \p \clef "bass" d,,,8-. \sf
+    | \clef "tenor" \acciaccatura { gis'' } a4. \p \clef "bass" d,,,8-. \sf
+    | \clef "tenor" \acciaccatura { gis'' } a4. \p \clef "bass" c,,,8 ( \ff \upbow
+    | bes8.~ \tuplet 3/2 { bes32 f' c' ) } \acciaccatura { <d a'> } d'4
     
 }

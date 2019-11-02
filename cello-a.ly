@@ -39,10 +39,11 @@ cello-a =
     | f!---> g-- \breathe r e,~ \pp \<
     %| e8. fis16 fis8 g16 a
     %| bes8
-    | e8. fis16 fis16. \p \> ( g32 a32 \mark \markup { \small \italic "poco allarg." } bes ) c d
-    | <d f,>8 \pp \breathe r8 \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
+    | e8. fis16 fis16. \p \> ( g32 a32 \mark \markup { \small \italic "poco riten." } bes ) c d
+    | \appoggiatura { d8~ } <d f,>8 \pp \fermata r8 \mark \markup { \small \italic "a tempo" }
+        \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
     | r16 \ff fis8 \sf \downbow \( fis,16 \) g8. fis'16
-    | e4.
+    | e4. r8
     
 
     %<<
