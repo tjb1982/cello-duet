@@ -23,15 +23,19 @@ cello-b = \new Voice \relative c {
     | fis'4. \> \appoggiatura { fis64 e fis } e8~ \p
     | e8 \acciaccatura { fis } e4.
     | \appoggiatura { e64 d cis } d8.~ \< \tuplet 3/2 { d32 a-. ( d,-. ) } a4-- \mf \>
-    | \time 3/4 g8 \p r16 \clef "tenor" \tuplet 3/2 { d'32 \f ( a' d } e ) gis-- a-- fis-- gis16~ \tuplet 3/2 { gis32 fis-. ( e-. ) }
-    %|
-    \appoggiatura {
-        d64-\markup { \small \italic "ad lib." }
-            \clef "bass" a d, d fis, g! d' a'
-            d,, d' d a' \clef "tenor" d e  gis a
-    }
+    %| \time 3/4 g8 \p r16 r64 \clef "tenor" d' \f ( a' d e32 ) gis-- a-- fis-- gis16~ \tuplet 3/2 { gis32 fis-. ( e-. ) }
+    %\appoggiatura {
+    %    d64-\markup { \small \italic "ad lib." }
+    %        \clef "bass" a d, d fis, g! d' a'
+    %        d,, d' d a' \clef "tenor" d e  gis a
+    %}
+    | g8 \p r16 r64 \clef "tenor" d' \f ( a' d e32 ) gis-- a-- fis-- gis16~ \tuplet 3/2 { gis32 fis-. ( e-. ) }
+    |
+    d64-\markup { \small \italic "ad lib." }
+        \clef "bass" a d, d fis, g! d' a'
+        d,, d' d a' \clef "tenor" d e  gis a
     b8 \breathe \clef "bass" e,,,16-- \mp ( d-- ) \break
-    | \time 2/4 c4~ \< \appoggiatura { 64 d' a' \mf \> \clef "tenor" d e a g f! } e4 \mp \> (
+    | c4~ \< \appoggiatura { 64 d' a' \mf \> \clef "tenor" d e a g f! } e4 \mp \> (
     | d8 \p ) r8 \appoggiatura { d64 c d } c8-- \mp \< [ ( r16 b16-- ) ]
     | a8-- ( \clef "bass" g,-- \mf ) r g'-- \f
     | f->-- f,-- \breathe r16 \tuplet 3/2 { g32 \pp \< ( a d } \tuplet 3/2 { a'16-- b-- d-- ) }
@@ -46,7 +50,7 @@ cello-b = \new Voice \relative c {
     | \acciaccatura { gis8 } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { gis'' } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { gis'' } a4. \harmonic \p \clef "bass" c,,,!8 ( \< \upbow \break
-    | bes8.~ \f \tuplet 3/2 { bes32 f' c' ) } \acciaccatura { <d a'> } d'4~ \<
+    | bes8.~ \f \tuplet 3/2 { bes32 f' c' ) } \acciaccatura <d a'>8 d'4~ \<
     | d4 \appoggiatura { a32 d, a' } d8~ \tuplet 3/2 { d16 a d, } 
     | \acciaccatura <bes, g' d' a'>8 d''2 \ff \breathe
     | f,,!4 ( \mf \> e''

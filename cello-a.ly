@@ -34,7 +34,7 @@ cello-a =
         \xstm g!8 \p \xstm a \appoggiatura { cis32 \tuplet 3/2 { d64 cis b } } \xstm cis8 \xstm d \xstm a~
     }
     | a8 r8 r4
-    | R2. | r4 r8 e-- \p \<
+    | R2 | R2 | r4 r8 e-- \p \<
     | f!8-- [ \( r16 g16-- \) ] a8-- \mp \< \( b-- \)
     | cis ( d ) \mf r e-- \f
     | f!---> g-- \breathe r e,~ ( \pp \<
