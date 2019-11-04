@@ -22,6 +22,9 @@ midi-inst = "cello"
     }
     \header {
         tagline = ""
+        title = "the mass of the mechanics"
+        poet = "Sarah Mangold"
+        composer = "Tom Brennan"
     }
 
     \score {
