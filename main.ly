@@ -20,19 +20,15 @@ midi-inst = "cello"
         %       (padding . 1)
         %       (stretchability . 12))
     }
-    \header {
-        tagline = ""
-        title = "the mass of the mechanics"
-        poet = "Sarah Mangold"
-        composer = "Tom Brennan"
-    }
-
-    \score {
-        \layout {
-            indent = #25
+    \bookpart {
+        \header {
+            tagline = ""
+            title = "the mass of the mechanics"
+            poet = "Sarah Mangold"
+            composer = "Tom Brennan"
+            instrument = "score (non-transposing)"
         }
-        \midi {}
-        <<
+        \score {
             \new StaffGroup {
                 <<
                     \new Staff \with {
@@ -59,7 +55,51 @@ midi-inst = "cello"
                     }
                 >>
             }
-        >>
+            \layout {
+                indent = #25
+            }
+            \midi {}
+        }
     }
+    %{\bookpart {
+        \header {
+            tagline = ""
+            title = "the mass of the mechanics"
+            poet = "Sarah Mangold"
+            composer = "Tom Brennan"
+            instrument = "score (non-transposing)"
+        }
+        \score {
+            \new StaffGroup {
+                <<
+                    \new Staff \with {
+                            instrumentName = #(car (assoc-ref names 'vc1))
+                            shortInstrumentName = #(cadr (assoc-ref names 'vc1))
+                            midiInstrument = \midi-inst
+                            \RemoveEmptyStaves
+                    } {
+                        a1
+                        %\mark \markup { \bold \box A }
+                    }
+                    \new Staff \with {
+                            instrumentName = \markup {
+                                \column {
+                                    #(car (assoc-ref names 'vc2))
+                                    \line { (A, D, G, B \small \flat) }
+                                }
+                            }
+                            shortInstrumentName = #(cadr (assoc-ref names 'vc2))
+                            midiInstrument = \midi-inst
+                            \RemoveEmptyStaves
+                    } {
+                        a1
+                    }
+                >>
+            }
+            \layout {
+                indent = #25
+            }
+            \midi {}
+        }
+    }%}
 }
-
