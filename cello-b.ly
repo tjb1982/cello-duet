@@ -28,7 +28,7 @@ cello-b = \new Voice \relative c {
     | a8-- ( \clef "bass" g,-- \mf ) r g'-- \f
     | f->-- f,~ f16 \tuplet 3/2 { g32 \> ( a d ) } \tuplet 3/2 { a'16-- ( b-- d-- ) }
     | e16. \pp \< ( d64 a g32-. ) fis-. d-. a-.
-        g16 \p fis''8 \pp \< ( \mark "poco riten." e16 )
+        g16 \p fis''8-- \pp \< ( \mark "poco riten." e16-- )
     | d8-- \p \breathe r8 \mark "a tempo"
         \tuplet 3/2 { a8-- \downbow \mf \< b-- \upbow ( c!-- ) } 
     | d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sf f,,!16
@@ -36,14 +36,20 @@ cello-b = \new Voice \relative c {
     | \acciaccatura { gis8-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { g''!-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { gis'' } a4. \harmonic \p \clef "bass" c,,,!8 ( \< \upbow
-    | bes8.~ \f \tuplet 3/2 { bes32 f' c' ) } \acciaccatura <d! a'>8 d'!4~ \<
-    | d8.~ 32. \tuplet 3/2 { a128 ( d, a' } d8~ ) \tuplet 3/2 { d16 <a d,>-> <d, g,>-> } 
-    | \acciaccatura <bes, g' d' a'>8 d''2 \ff \breathe
-    | f,,!4 ( \mf \> e''
-    | d8. \p ) r16 d128 [ ( c! d c~ ) 32~ c16 \< ( r16 b!16-- ] )
-    | a8-- \mp ( g,-- ) r8 a \pp \< (
-    | d,8.~ d64 ) d' _( d a' d4~ \p
-    | d8.~ ) 64 a64 ( d, a' d8~ ) \> \tuplet 3/2 { d16 a-. ( d,-. ) }
+    | bes8.~ \f \tuplet 3/2 { bes32 f' c' ) } \acciaccatura <d! a'>8 d'!4~
+    | d8.-\markup { \small \italic "cresc. molto" } ~ 32. \tuplet 3/2 { a128 ( d, a' } d8~ ) \tuplet 3/2 { d16 <a d,>-> <d, g,>-> } 
+    | \time 3/4
+        \acciaccatura <
+            bes,
+            \laissezVibrer g'
+            \laissezVibrer d'
+            \laissezVibrer a'
+        >8 d''4~ \ff 4~ \> d8 g, \( ( \p \<
+    | \time 2/4 f!4 ) \mf \> e' (
+    | d8. \p ) \) r16 d128 [ ( c! d c~ ) 32~ c16 \< ( r16 b!16-- ] )
+    | a8-- \mp ( g,-- ) r8 a-- \pp \<
+    | d,8.~ ( d64 d' d a' d4~ \p
+    | d8.~ ) 64 a64 ( d, a' d8~ \> \tuplet 3/2 { d16 a-. d,-. ) }
     | <<
         \new Voice {
             \voiceOne

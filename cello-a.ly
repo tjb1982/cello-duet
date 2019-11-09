@@ -36,52 +36,53 @@ cello-a =
         \unset melismaBusyProperties
         fis16~ 8
         \set melismaBusyProperties = #'()
-        \mark "poco riten." g32 a
+        \mark "poco riten." g32-. a-.
     | bes8-- \) \p \breathe r8 \mark "a tempo"
         \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
-    | r16 \ff fis8 \sf \downbow \( fis,16 \) g8. fis'16
+    | r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
     | e4. r8
     | r8 a,-- \p gis16->-. ( e-. ) r8
     | r8. a16-- gis-.-> ( e-. ) r a--
-    | \tuplet 3/2 { \acciaccatura a8 gis16-. \acciaccatura gis8 e16-. ( a-. ) } gis-- \( e-- \)
+    | \acciaccatura a8 \tuplet 3/2 { gis16-. \acciaccatura gis8 e16-. ( a-. ) } gis-- \( e-- \)
         fis4 \< \upbow
-    | r16 d' \f \< \upbow \tuplet 3/2 { cis[ a-- ( e'-- ) ] } dis8 r16 r32 b!
-    | fis'4. r16 g!16
-    | a8 \ff ( a,4. ) \breathe
-    | r4 r8 e \p \< \(
-    | f!8 [ r16 g ] a8 b
+    | r16 \! d' \f \upbow \tuplet 3/2 { cis[ a-- ( e'-- ) ] } dis8 r16 r32 b!
+    | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16
+    | \time 3/4
+        \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
+    | \time 2/4 r4 r8 e-- \p \<
+    | f!8-- \( [ r16 g-- \) ] a8-- \( b-- \)
     \set melismaBusyProperties = #'()
     | cis8-- ( \mp d-- ) r8
     \unset melismaBusyProperties
-        e~ \pp
+        e~ \pp \(
     | e f!~ 4 \)
     | r8 r16 a, \p \tuplet 3/2 { g f e~ } e r16
     | <<
         {
             \voiceOne
             {
-                r8 \clef "tenor" a \pp \< \tuplet 3/2 { \acciaccatura a8 g f e }
-                | e8 \! d4.~ \>
-                | d8 \!
+                r8 \clef "tenor" a-- \pp \< \acciaccatura a8 \( \tuplet 3/2 { g f e }
+                | e8^"II" \! d4.~
+                | d8 \)
             }
         }
         \new Voice {
             \voiceTwo
-            r4 d,4
-            | a'2~
-            | a8
+            r4 d,4 \open
+            | a'2 \open ~ \>
+            | a8 \!
         }
     >> a8 \rest a4 \rest \bar "|." 
 }
 \addlyrics {
     a way to use the dic -- tion -- a -- ry or your int' rest _
-    the world's long -- est float -- ing bridge
+    the world's long -- est float -- ing bridge __
     plac -- ing your hand be -- fore _ the chick -- ens
     young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es
     dis -- per -- sion dis -- per -- sion
     or pre -- vi-ous ex -- per -- i -- ence
-    re -- car -- pet -- ing paths to doors to doors _
-    the on -- ly per -- son I know I know
+    re -- car -- pet -- ing paths to doors to doors __ _ _ _
+    the on -- ly per -- son I know I know __
     and si -- mi -- lar and si -- mil -- ar mo -- dels
 }
 >>
