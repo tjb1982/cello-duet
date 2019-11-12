@@ -5,9 +5,9 @@ cello-b = \new Voice \relative c {
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 2,2,2,2
 
-    g8.~ \open \f _( \tuplet 3/2 { g32 d' a' } d4~ )
+    g8.^\markup { \small \italic "warm, grand" } ~ \open \f _( \tuplet 3/2 { g32 d' a' } d4~ )
     | d8~ 32. a64 ( g d e a d8~ ) \tuplet 3/2 { d16 a-- ( d,-- ) }
-    | \acciaccatura { <g, d' a'>8 } d''8~ \fermata \> 8~ 4~ \p
+    | \acciaccatura { <g, d' a'>8 } d''4~ \> 4~ \p
     | d8 [ e128 ( d e d~ ) d32~ d16~ ] 4~
     | \time 3/4 8~ \< 16.~
         d128^\markup { \small \italic "ad lib., inflorescent" } ( a d, g, )
@@ -36,7 +36,7 @@ cello-b = \new Voice \relative c {
     | \acciaccatura { gis8-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { g''!-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { gis'' } a4. \harmonic \p \clef "bass" c,,,!8 ( \< \upbow
-    | bes8.~ \f \tuplet 3/2 { bes32 f' c' ) } \acciaccatura <d! a'>8 d'!4~
+    | bes8.~ \f \tuplet 3/2 { bes32 f'! c'! ) } \acciaccatura <d! a'>8 d'!4~
     | d8.-\markup { \small \italic "cresc. molto" } ~ 32. \tuplet 3/2 { a128 ( d, a' } d8~ ) \tuplet 3/2 { d16 <a d,>-> <d, g,>-> } 
     | \time 3/4
         \acciaccatura <

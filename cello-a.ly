@@ -20,7 +20,7 @@ cello-a =
     \time 4/4
     R2*2
     % m. 3
-    r8 \fermata r16 d^\markup { \small \italic "sweetly" } \p d'8.-- ( cis16-- )
+    r8 r16 d^\markup { \small \italic "sweetly, flautando" } \p d'8.-- ( cis16-- )
     | a16.-- ( g32-- ) g16.-- ( a32-- ) cis-- d-- a-- cis-- g8--
     | \time 3/4 g4~ g8 r8 r4
     \unset melismaBusyProperties
@@ -28,7 +28,7 @@ cello-a =
     | g!16. \p a32 cis32 ( \tuplet 3/2 { d64 cis b } cis32. ) d64 a4~
     | a8 r8 r4
     \set melismaBusyProperties = #'()
-    | R2 | R2 | r4 r8 e-- \p \<
+    | R2 | R2 | r4 r8 e--^\markup {\small \italic ord.} \p \<
     | f!8-- [ \( r16 g16-- \) ] a8-- \mp \< \( b-- \)
     | cis ( d ) \mf r e-- \f
     | f!---> g-- r e,~ \( \pp \<

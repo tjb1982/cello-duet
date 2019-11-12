@@ -6,6 +6,13 @@
 #(set-default-paper-size "a4")
 names = #'((vc1 . ("Violoncello I" "I."))
            (vc2 . ("Violoncello II" "II.")))
+vc-one-names = #(assoc-ref names 'vc1)
+vc-two-names = #(assoc-ref names 'vc2)
+vc-one-name = #(car vc-one-names)
+vc-one-short-name = #(cadr vc-one-names)
+vc-two-name = #(car vc-two-names)
+vc-two-short-name = #(cadr vc-two-names)
+
 midi-inst = "cello"
 
 \book {
@@ -20,34 +27,34 @@ midi-inst = "cello"
         %       (padding . 1)
         %       (stretchability . 12))
     }
+    \header {
+        tagline = ""
+        title = "Sonata"
+        subtitle = "I. \"the mass of the mechanics\""
+        poet = "Sarah Mangold"
+        composer = "Tom Brennan"
+        instrument = "score (non-transposing)"
+    }
     \bookpart {
-        \header {
-            tagline = ""
-            title = "the mass of the mechanics"
-            poet = "Sarah Mangold"
-            composer = "Tom Brennan"
-            instrument = "score (non-transposing)"
-        }
         \score {
             \new StaffGroup {
                 <<
                     \new Staff \with {
-                            instrumentName = #(car (assoc-ref names 'vc1))
-                            shortInstrumentName = #(cadr (assoc-ref names 'vc1))
+                            instrumentName = \vc-one-name
+                            shortInstrumentName = \vc-one-short-name
                             midiInstrument = \midi-inst
                             \RemoveEmptyStaves
                     } {
                         \cello-a
-                        %\mark \markup { \bold \box A }
                     }
                     \new Staff \with {
                             instrumentName = \markup {
                                 \column {
-                                    #(car (assoc-ref names 'vc2))
+                                    \vc-two-name
                                     \line { (A, D, G, B \small \flat) }
                                 }
                             }
-                            shortInstrumentName = #(cadr (assoc-ref names 'vc2))
+                            shortInstrumentName = \vc-two-short-name
                             midiInstrument = \midi-inst
                             \RemoveEmptyStaves
                     } {
@@ -61,34 +68,33 @@ midi-inst = "cello"
             \midi {}
         }
     }
-    %{\bookpart {
+    %{
+    \bookpart {
         \header {
-            tagline = ""
-            title = "the mass of the mechanics"
-            poet = "Sarah Mangold"
-            composer = "Tom Brennan"
-            instrument = "score (non-transposing)"
+            title = ""
+            subtitle = "II."
+            poet = ""
+            composer = ""
         }
         \score {
             \new StaffGroup {
                 <<
                     \new Staff \with {
-                            instrumentName = #(car (assoc-ref names 'vc1))
-                            shortInstrumentName = #(cadr (assoc-ref names 'vc1))
+                            instrumentName = \vc-one-name
+                            shortInstrumentName = \vc-one-short-name
                             midiInstrument = \midi-inst
                             \RemoveEmptyStaves
                     } {
                         a1
-                        %\mark \markup { \bold \box A }
                     }
                     \new Staff \with {
                             instrumentName = \markup {
                                 \column {
-                                    #(car (assoc-ref names 'vc2))
+                                    \vc-two-name
                                     \line { (A, D, G, B \small \flat) }
                                 }
                             }
-                            shortInstrumentName = #(cadr (assoc-ref names 'vc2))
+                            shortInstrumentName = \vc-two-short-name
                             midiInstrument = \midi-inst
                             \RemoveEmptyStaves
                     } {
@@ -101,5 +107,6 @@ midi-inst = "cello"
             }
             \midi {}
         }
-    }%}
+    }
+    %}
 }
