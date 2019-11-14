@@ -34,7 +34,7 @@ grave-score-cello-a-async-opening-ostinato = \score {
         <<
             \new Staff \with {
                 instrumentName = \vc-one-short-name
-                %shortInstrumentName = \vc-one-short-name
+                shortInstrumentName = \vc-one-short-name
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
             } {
