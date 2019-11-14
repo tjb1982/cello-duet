@@ -44,24 +44,27 @@ grave-score-cello-a-async-opening-ostinato = \score {
         >>
     }
     \layout {
-        indent = #0
+        indent = #25
     }
     \midi {}
 }
 
-grave-score-cello-b-async-one = \score {
+grave-score-cello-b-async-opening-ostinato = \score {
     \new StaffGroup {
         <<
             \new Staff \with {
                 instrumentName = \vc-two-short-name
-                %shortInstrumentName = \vc-one-short-name
+                shortInstrumentName = \vc-two-short-name
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
-            } { \cello-b }
+            } {
+                %\override Staff.TimeSignature.stencil = ##f
+                \cello-b-async-opening-ostinato
+            }
         >>
     }
     \layout {
-        indent = #0
+        indent = #25
     }
     \midi {}
 }
