@@ -28,8 +28,8 @@ mass-of-the-mechanics-score = \score {
         >>
     }
     \layout {
-        indent = #25
+        indent = \main-indent
+        short-indent = \short-indent
     }
-    \midi {}
 }
 

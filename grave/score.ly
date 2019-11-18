@@ -24,17 +24,16 @@ grave-score = \score {
         >>
     }
     \layout {
-        indent = #25
+        indent = \main-indent
     }
-    \midi {}
 }
 
-grave-score-cello-a-async-opening-ostinato = \score {
+grave-score-a-sub-one = \score {
     \new StaffGroup {
         <<
             \new Staff \with {
                 instrumentName = \vc-one-short-name
-                shortInstrumentName = \vc-one-short-name
+                shortInstrumentName = "" %\vc-one-short-name
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
             } {
@@ -44,17 +43,16 @@ grave-score-cello-a-async-opening-ostinato = \score {
         >>
     }
     \layout {
-        indent = #25
+        indent = \main-indent
     }
-    \midi {}
 }
 
-grave-score-cello-b-async-opening-ostinato = \score {
+grave-score-a-sub-two = \score {
     \new StaffGroup {
         <<
             \new Staff \with {
                 instrumentName = \vc-two-short-name
-                shortInstrumentName = \vc-two-short-name
+                shortInstrumentName = "" %\vc-two-short-name
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
             } {
@@ -64,7 +62,32 @@ grave-score-cello-b-async-opening-ostinato = \score {
         >>
     }
     \layout {
-        indent = #25
+        indent = \main-indent
     }
     \midi {}
 }
+
+grave-score-b = \score {
+    \new StaffGroup {
+        <<
+            \new Staff \with {
+                instrumentName = \vc-one-short-name
+                shortInstrumentName = \vc-one-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } { \cello-a-rehearsal-b }
+            \new Staff \with {
+                instrumentName = \vc-two-short-name
+                shortInstrumentName = \vc-two-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } {
+                \cello-b-rehearsal-b
+            }
+        >>
+    }
+    \layout {
+        indent = \short-indent
+    }
+}
+

@@ -1,4 +1,5 @@
 cello-b = \new Voice \relative c {
+    \override Score.RehearsalMark.self-alignment-X = #LEFT
     \time 2/4
     \clef "bass"
     \set subdivideBeams = ##t
@@ -9,8 +10,8 @@ cello-b = \new Voice \relative c {
     | d8~ 32. a64 ( g d e a d8~ ) \tuplet 3/2 { d16 a-- ( d,-- ) }
     | \acciaccatura { <g, d' a'>8 } d''4~ \> 4~ \p
     | d8 [ e128 ( d e d~ ) d32~ d16~ ] 4~
-    | \time 3/4 8~ \< 16.~
-        d128^\markup { \small \italic "ad lib., inflorescent" } ( a d, g, )
+    | \time 3/4 8~ \< 16
+        \tuplet 3/2 { a32^\markup { \small \italic "ad lib., inflorescent" } ( d, g, ) }
         \tuplet 9/8 { g64 ( \f d' a' d ) e ( d a d, g, ) }
         \tuplet 13/8 { fis ( g d' a' d ) e ( d a d, \open d ) fis, ( d' d \open ) }
     g,8.~ \tuplet 3/2 { g32 d'-. ( a'-. ) }
@@ -29,11 +30,12 @@ cello-b = \new Voice \relative c {
     | f->-- f,~ f16 \tuplet 3/2 { g32 \> ( a d ) } \tuplet 3/2 { a'16-- ( b-- d-- ) }
     | e16. \pp \< ( d64 a g32-. ) fis-. d-. a-.
         g16 \p fis''8-- \pp \< ( \mark "poco riten." e16-- )
-    | d8-- \p \breathe r8 \mark "a tempo"
+    | d8-- \p \breathe r8 \mark "accel."
         \tuplet 3/2 { a8-- \downbow \mf \< b-- \upbow ( c!-- ) } 
-    | d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sf f,,!16
-    | r16 bes'8 \sf bes,,16 \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
-    | \acciaccatura { gis8-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
+    | \mark \slightly-faster-than-tempo-one
+        d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sf f,,!16
+    | r16 bes'8 \sf bes,,16 \mark \poco-allarg \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
+    | \acciaccatura { gis8-> } \mark \tempo-one a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { g''!-> } a4. \harmonic \p \clef "bass" d,,,8-. \sf
     | \clef "tenor" \acciaccatura { gis'' } a4. \harmonic \p \clef "bass" c,,,!8 ( \< \upbow
     | bes8.~ \f \tuplet 3/2 { bes32 f'! c'! ) } \acciaccatura <d! a'>8 d'!4~

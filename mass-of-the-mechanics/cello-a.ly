@@ -11,6 +11,7 @@ singing-rhythm-explanation = \markup \small {
 cello-a = 
 <<
 \new Voice \relative c' {
+    \override Score.RehearsalMark.self-alignment-X = #LEFT
     \tempo "Adagio" 8 = 72
     \clef #"treble"
     \set subdivideBeams = ##t
@@ -37,16 +38,17 @@ cello-a =
         fis16~ 8
         \set melismaBusyProperties = #'()
         \mark "poco riten." g32-. a-.
-    | bes8-- \) \p \breathe r8 \mark "a tempo"
+    | bes8-- \) \p \breathe r8 \mark "accel."
         \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
-    | r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
-    | e4. r8
-    | r8 a,-- \p gis16->-. ( e-. ) r8
+    | \mark \slightly-faster-than-tempo-one
+        r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
+    | e4~ \mark \poco-allarg 8 r8
+    | \mark \tempo-one r8 a,-- \p gis16->-. ( e-. ) r8
     | r8. a16-- gis-.-> ( e-. ) r a--
-    | \acciaccatura a8 \tuplet 3/2 { gis16-. \acciaccatura gis8 e16-. ( a-. ) } gis-- \( e-- \)
+    | \acciaccatura a8 \tuplet 3/2 { gis16-.^"(chickens)" \acciaccatura gis8 e16-. ( a-. ) } \acciaccatura a8 gis16-- \( e-- \)
         fis4 \< \upbow
-    | r16 \! d' \f \upbow \tuplet 3/2 { cis[ a-- ( e'-- ) ] } dis8 r16 r32 b!
-    | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16
+    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
+    | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16--
     | \time 3/4
         \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
     | \time 2/4 r4 r8 e-- \p \<
@@ -61,7 +63,7 @@ cello-a =
         {
             \voiceOne
             {
-                r8 \clef "tenor" a-- \pp \< \acciaccatura a8 \( \tuplet 3/2 { g f e }
+                r8 \clef "tenor" a-- \pp \< \acciaccatura a8 \( \tuplet 3/2 { g8. f16 e8 }
                 | e8^"II" \! d4.~
                 | d8 \)
             }
@@ -78,7 +80,7 @@ cello-a =
     a way to use the dic -- tion -- a -- ry or your int' rest _
     the world's long -- est float -- ing bridge __
     plac -- ing your hand be -- fore _ the chick -- ens
-    young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es
+    young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es __ _
     dis -- per -- sion dis -- per -- sion
     or pre -- vi-ous ex -- per -- i -- ence
     re -- car -- pet -- ing paths to doors to doors __ _ _ _

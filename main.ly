@@ -4,44 +4,50 @@
 \include "grave/score.ly"
 \include "mass-of-the-mechanics/score.ly"
 
-#(set-default-paper-size "a4")
+#(set-default-paper-size "b4")
 
 \book {
-    \paper {
-        %print-all-headers = ##t
-        %bottom-margin = 20\mm
-        %system-system-spacing =
-        %    #'((basic-distance . 20))
-        score-system-spacing =
-            #'((basic-distance . 20))
-        %last-bottom-spacing =
-        %    #'((basic-distance . 20))
-        %       (minimum-distance . 6)
-        %       (padding . 1)
-        %       (stretchability . 12))
-    }
     \header {
         tagline = ""
-        title = "Sonata"
+        title = "Sonata da chiesa"
         composer = "Tom Brennan"
-    }
-    \bookpart {
-        \header {
-            subtitle = "I."
-        }
-        \grave-score
-        \grave-score-cello-a-async-opening-ostinato
-        \grave-score-cello-b-async-opening-ostinato
-        %\grave-score-cello-a-async-one
-        %\grave-score-cello-b-async-one
+        instrument = "score (non-transposing)"
+        %composer = "Mizzen Keel"
     }
 
     \bookpart {
+        \paper {
+            %print-all-headers = ##t
+            system-system-spacing =
+                #'((basic-distance . 25))
+            %last-bottom-spacing =
+            %    #'((basic-distance . 20))
+            %       (minimum-distance . 6)
+            %       (padding . 1)
+            %       (stretchability . 12))
+        }
         \header {
-            subtitle = "II. \"the mass of the mechanics\""
+            subtitle = "I. \"the mass of the mechanics\""
             poet = "Sarah Mangold"
-            instrument = "score (non-transposing)"
         }
         \mass-of-the-mechanics-score
     }
+
+    \bookpart {
+        \paper {
+            score-system-spacing =
+                #'((basic-distance . 23))
+            system-system-spacing =
+                #'((basic-distance . 15))
+            ragged-last = ##t
+        }
+        \header {
+            subtitle = "III."
+        }
+        \grave-score
+        \grave-score-a-sub-one
+        \grave-score-a-sub-two
+        \grave-score-b
+    }
+
 }
