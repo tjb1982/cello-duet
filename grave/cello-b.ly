@@ -10,7 +10,7 @@ ricochetTrillText = \markup {
 }
 square-pizz-note = \markup {
     \wordwrap \small {
-        The "\"ø\"" symbol here means articulate this pizzicato with the right hand at 1/2 of the string length (i.e., the first harmonic node of the notated fundamental); this gives it a clarinet-like sound (i.e., a square waveform). The intention with these pizzicatos is to give three different colors on the different strings.
+        The "\"ø\"" symbol here means articulate this pizzicato with the right hand at 1/2 of the string length (i.e., the first harmonic node of the notated fundamental); this gives it a clarinet-like sound (i.e., a square waveform). The intention with these pizzicatos is to play with different colors.
     }
 }
 left-hand-pizz-note = \markup {
@@ -20,7 +20,7 @@ left-hand-pizz-note = \markup {
 }
 
 cello-b = \new Voice \relative c' {
-    \tempo "Grave" 8 = 60-72
+    \tempo "Grave" 8 = 72-84
     \compoundMeter #'((4 8) (3 8) (2 8))
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
@@ -43,15 +43,21 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
     \clef "tenor"
-    \partial 8 \hideNotes b8 \unHideNotes \bar "||"
     \override Score.RehearsalMark.self-alignment-X = #LEFT
     \mark \markup { \box \a-sub-two \small { \concat { ( notifies " " \a-sub-one ) }}}
     \override TextSpanner.bound-details.left.text = \markup {\upright "III"}
     <a b>4-- \p \> <a a>4-- a4. \fermata \breathe a8.-- \pp \< ( a16-- )
     | b8 ( a4. )
-        a4.-- \startTextSpan ( \p \> a8-- ) b8 (
+        a4.-- ( \p \> \tuplet 3/2 { a8-- g-- ) b  ( }
         a2~ \startTrillSpan
-        \fermata \cross-head a8 \stopTrillSpan \! ) r8
+        \fermata \cross-head a8 \stopTrillSpan )
+        a4-- \pp \startTextSpan ( a8.-- \< a16-- )
+    | b8 ( a4. )
+        a4.-- ( a8-- ) b8 (
+        a2~ \startTrillSpan \p \>
+        \fermata \cross-head a8 \stopTrillSpan \! )
+
+        r8
         a8~ \pp \< ( \tuplet 3/2 { a16 g b } \tuplet 3/2 { a32 \p \> g b } \repeat percent 2 { \tuplet 3/2 { \footnote #'(0 . 3) \left-hand-pizz-note a64 g b } }
     | \autoBeamOff \cross-head a8 \stopTextSpan \! ) \autoBeamOn \breathe
     <<
@@ -62,18 +68,17 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
         }
         \new Voice { \voiceTwo
             \override TextSpanner.bound-details.left.text = \markup {\upright "pizz."}
-            \footnote #'(0 . 3) \square-pizz-note a8 \laissezVibrer \halfopen \p \startTextSpan
+            a8 \laissezVibrer \p \startTextSpan
             \harmonicsOn g8 _"III" \pp \laissezVibrer s8 \harmonicsOff
-            a4. \pp \laissezVibrer \halfopen \stopTextSpan
+            \footnote #'(0 . 3) \square-pizz-note a4. \pp \laissezVibrer \halfopen \stopTextSpan
         }
     >>
     \oneVoice
-    r8 \bar ".|:" \repeat tremolo 8 a64 \pp ^"arco"^\markup { \small \italic "ric." } ~ 
-    | \override TextSpanner.bound-details.left.text = \markup {\small "1st time, sul pont."}
-        4\espressivo \fermata r32 g-. \startTextSpan ( b16-.-> ) r16 \fermata
+    r8 \repeat tremolo 8 a64 \pp ^"arco"^\markup { \small \italic "ric." } ~ 
+    | \override TextSpanner.bound-details.left.text = \markup {\small "sul pont." }
+        4\espressivo \fermata r32 g-. \startTextSpan ( b16-.-> ) r16
         r64 a-.-> \p ( g-. b-. ) a4.~ \> \startTrillSpan \cross-head a8 \!
             \stopTrillSpan \stopTextSpan \breathe
-            \bar ":|."
             r8
     | \cross-head a4~
             ^\markup {\small "II"}
@@ -83,7 +88,7 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
         \bar "!" \hideNotes a8 ) \unHideNotes
 }
 
-cello-b-rehearsal-b = \new Voice \relative c' {
+cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
     \once \omit Staff.TimeSignature
     \compoundMeter #'((4 8) (3 8) (2 8))
     \set subdivideBeams = ##t
@@ -96,13 +101,12 @@ cello-b-rehearsal-b = \new Voice \relative c' {
     %\partial 4
         a4
     |
-        \once \override TextSpanner.bound-details.left.text = \markup {\small "molto flautando"}
+        \mark "allarg."
         \autoBeamOff
         \repeat tremolo 8 <a beses>64 ( \pp \<
         ^\markup {
-            \small \italic "bariolage"
+            \small \italic "bariolage, molto flautando"
         } _\markup { \small "I,II" }
-        \startTextSpan
 
         \repeat tremolo 8 <a gisis! beses!>64
         _\markup {
@@ -112,19 +116,41 @@ cello-b-rehearsal-b = \new Voice \relative c' {
         \repeat tremolo 8 <a g! beses!>64 \p \>
         \repeat tremolo 8 <gisis! aisis b!>64
         \autoBeamOn
-        \repeat tremolo 16 <b! a! g!>64 )
-        \stopTextSpan
+        \repeat tremolo 16 <b! a! g!>64 \pp \fermata )
         \breathe
 
+        \mark "freely"
         \clef "treble" \tuplet 3/2 { a16 -\markup {\small \italic "sweetly" } ( b e ) } dis8. ( cis'16~
-        | cis4~ \fermata )
-            ^\markup { \small \italic "quasi cadenza" }
-            \appoggiatura { \tuplet 3/2 { cis16 d cis } \tuplet 5/4 { c32 b cis, a' g }
-                \clef "tenor" \tuplet 9/8 { fis64 e d a c b a g b } }
-            a8~ \pp \< (
-                \tuplet 3/2 { a32 \p \> g b }
-                \repeat unfold 2 { \tuplet 3/2 { a64 g b } } a4. \trill )
-            a4~
+    | cis8~ \fermata cis8~ )
+        ^\markup { \small \italic "quasi cadenza" }
+        \appoggiatura { \tuplet 3/2 { cis16 d cis } \tuplet 5/4 { c32 b cis, a' g }
+            \clef "tenor" \tuplet 9/8 { fis64 e d a c b a g b } }
+        a8~ \pp (
+            \tuplet 3/2 { a32 \p \> g b }
+            \repeat unfold 2 { \tuplet 3/2 { a64 g b } } \mark \tempo-one a4. \pp \trill )
+        a4~
+    | 4 g b4. a8 g
+    | g4 a4 d,4. a'4~
+    | \mark "stringendo" <a a>4 <a g> <a b>4 <a a>8 <a d,>4
+    | \time 5/8
+        \set beatStructure = 3,2
+        \clef "bass" <g, d'>4---> <d' a'>8 <d a'> <g, d'>
+    | <<
+        {
+            <g d'>4---> ~ \sfp \< ^\markup { \updownbow }
+                <g d'>8 ~ <g d'> \ff \laissezVibrer r8
+        }
+        \new Staff \with {
+            \remove "Time_signature_engraver"
+            alignAboveContext = "cello-b"
+        } {
+            \clef "tenor" r4 r8
+            \tuplet 3/2 { r32 g' \pp -\markup {\small \italic "molto legato, flautando" } ( a }
+                \tuplet 9/8 { b64 d \clef "treble" g a b d b a g }
+                \tuplet 3/2 { \clef "tenor" d32 b a ) }
+        }
+    >>
+    | r4
 }
 
 

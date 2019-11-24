@@ -47,7 +47,9 @@ cello-a =
     | r8. a16-- gis-.-> ( e-. ) r a--
     | \acciaccatura a8 \tuplet 3/2 { gis16-.^"(chickens)" \acciaccatura gis8 e16-. ( a-. ) } \acciaccatura a8 gis16-- \( e-- \)
         fis4 \< \upbow
-    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
+    %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
+    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32
+        \appoggiatura { \tuplet 5/4 {\clef "bass" c,,,!32 g'! a' \clef "treble" e' a } } b!32--
     | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16--
     | \time 3/4
         \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8

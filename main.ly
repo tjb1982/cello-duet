@@ -3,6 +3,7 @@
 \include "common.ly"
 \include "grave/score.ly"
 \include "mass-of-the-mechanics/score.ly"
+\include "presto/score.ly"
 
 #(set-default-paper-size "b4")
 
@@ -31,6 +32,20 @@
             poet = "Sarah Mangold"
         }
         \mass-of-the-mechanics-score
+    }
+
+    \bookpart {
+        \paper {
+            score-system-spacing =
+                #'((basic-distance . 23))
+            system-system-spacing =
+                #'((basic-distance . 15))
+            ragged-last = ##t
+        }
+        \header {
+            subtitle = "II."
+        }
+        \presto-score
     }
 
     \bookpart {

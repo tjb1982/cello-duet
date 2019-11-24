@@ -70,13 +70,13 @@ grave-score-a-sub-two = \score {
 grave-score-b = \score {
     \new StaffGroup {
         <<
-            \new Staff \with {
+            \new Staff = "cello-a" \with {
                 instrumentName = \vc-one-short-name
                 shortInstrumentName = \vc-one-short-name
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
             } { \cello-a-rehearsal-b }
-            \new Staff \with {
+            \new Staff = "cello-b" \with {
                 instrumentName = \vc-two-short-name
                 shortInstrumentName = \vc-two-short-name
                 midiInstrument = \midi-inst

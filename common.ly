@@ -20,3 +20,7 @@ poco-allarg = "poco allarg."
 
 main-indent = #29
 short-indent = #4
+
+updownbow = \markup {
+    \concat { \musicglyph "scripts.downbow" \musicglyph "scripts.upbow" }
+}
