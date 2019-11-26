@@ -2,3 +2,4 @@
 *.pdf
 *.mid*
 audio/
+.venv

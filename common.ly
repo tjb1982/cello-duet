@@ -24,3 +24,6 @@ short-indent = #4
 updownbow = \markup {
     \concat { \musicglyph "scripts.downbow" \musicglyph "scripts.upbow" }
 }
+
+sempre-ad-lib = \markup {\small \italic "sempre ad lib."}
+

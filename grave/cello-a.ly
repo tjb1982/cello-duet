@@ -2,6 +2,12 @@ a-sub-one = \markup { \concat {\italic "A" \sub \teeny 1} }
 a-sub-two = \markup { \concat {\italic "A" \sub \teeny 2} }
 letter-a =  \markup { \bold \box "A" \small \concat { "= " ( \a-sub-one ", " \a-sub-two ) } }
 
+c-sharp = \markup \concat { C \small \super \sharp }
+
+air-sound-note = \markup \wordwrap \small {
+    The articulation of this \c-sharp (i.e., the duration comprising all three tied notes) should go from \italic {molto ponticello} to "pitched noise," made by touching the \c-sharp as if it were a harmonic node, and touching one or more fingers in a similar manner behind this location, which prevents the possibility of a natural harmonic sounding. 
+}
+
 cello-a = \new Voice \relative c' {
     \tempo "Grave" 8 = 72-84
     \compoundMeter #'((4 8) (3 8) (2 8))
@@ -31,7 +37,7 @@ cello-a-async-opening-ostinato = \new Voice \relative c' {
     \mark \markup { \box \a-sub-one \small { \concat { ( awaits " " \a-sub-two ) }}}
     \partial 8 \hideNotes c8~ \unHideNotes
     \once \omit Score.BarLine
-    c2~ \> \cross-head c8 \! r8 <<
+    c2~ ^\markup \sempre-ad-lib \> \cross-head c8 \! r8 <<
         { \voiceOne
             \once \override TextSpanner.bound-details.left.text = \markup {
                 \small "piu vibrato"
@@ -57,25 +63,59 @@ cello-a-async-opening-ostinato = \new Voice \relative c' {
     | <<
         {
             \voiceOne
-            \repeat tremolo 8 b64-- ~ [ \p -\markup { \small \italic "(trem.)" }
+            \repeat tremolo 8 b64-- ~ [ \p -\markup { \small \italic "trem." }
             b8\fermata \pp r8
             \once \override TextSpanner.bound-details.left.text = \markup {\small "sul tasto"}
             b8 \startTextSpan ] ( c4. \> ~ \cross-head c8 \! ) r8
-            | b16-.\pp ( c16-. c4. \> ~ \cross-head c8 \! \stopTextSpan )
+            | \acciaccatura a8 b16-.\pp c64-. ( \repeat unfold 3 c64-. c4. \> ~ \cross-head c8 \! \stopTextSpan )
         }
         \new Voice {
             \voiceTwo
             \repeat tremolo 8 a64 r8 r8 a8-+ \laissezVibrer r4. r4
-            | \break a8-+ \laissezVibrer s8 s4 s8 s8
+            | r32 a32-+ \laissezVibrer s16 s8 s4 s8 s8
         }
     >>
-        c8^"pizz." \harmonic \p \laissezVibrer
         \oneVoice
+        \clef "bass" f,8 \harmonic \p \laissezVibrer
+        \clef "tenor"
         r8 \fermata
- 
-        \bar "!"
-        \mark \markup { \box \bold "B" }
-        s8
+        \override TextSpanner.bound-details.left.text = \markup {\small \concat {"molto sul tasto" \upright ", at the tip; leaves rustling" }}
+        r32 [ c''16 \pp \startTextSpan ( a32-. ) ]
+    | r8 \tuplet 3/2 { b32 ( a64 b a-. ) a-! } r16
+        r4 r16 r32 a64 ( c \tuplet 5/4 { b16-. ) g-! c-! a-! a-! }
+        r8 \repeat tremolo 8 <a a>64 -\markup {\small \italic "ricochet" } ~
+    | a8 r16. a32 ~ \tuplet 5/4 { a16 [ b32-. ( b32-. ) g16-! a-! c-! ] }
+        \repeat tremolo 12 <a g>64 -\markup {\small \italic "trem."} [ ( a16-. ) r16 b-! \stopTextSpan ]
+        \tuplet 3/2 { r8 c-"pizz." ^"IV" \harmonic \laissezVibrer r8 }
+    | r32 \clef "bass"
+            \harmonicsOn <g f,>16.-"arco" ~ 8 \espressivo \harmonicsOff r4
+            r16. \clef "tenor" <a b>32 ~ 8 \espressivo r16.
+                \clef "bass" \repeat tremolo 2 f,64 \harmonic ~
+            \repeat tremolo 16 f64 \harmonic \espressivo ~
+    | \repeat tremolo 4 f64 \harmonic \clef "tenor" 
+
+    %\cadenzaOn
+    %\set Score.barAlways = ##t
+    %\set Score.defaultBarType = ""
+    %\omit Stem
+    %\set beatStructure = 4,3,2
+    %c16.. b64 ~
+    %| 8. [ ~ 64 a64 ~ 32 8. r16 ]
+    %    r16.. [ b64 ~ b8 r8 ]
+    %    r64 [ g64~ g32 ~ 16 a8 ~ ]
+    %| 64 [ 64 ~ 32 ~ 16 ~ 32. b64 ~ 32 ~ 64 r64 r8 ]
+    %    c16 r16     a16. [ r32     r32 g64 b64 ~ b16 ]
+    %    a8 ~ a32 b16. 
+    %%| ~ 16 ~ 64 b64 ~ 32 ~
+    %| b32 b16 g32     ~ g8    ~ 32 b32 ~ 16     ~ 16 ~ 64 a64 ~ 32 ~
+    %    a8 [ ~ a32 c32 ~ c16 ~  c16 ~ c32 ~ c64 r64  r8 ]
+    %    r16 [ a16 ~ a8 ]
+    %| b8. ~ 64 c64 ~ 32      ~ c8. ~ 64 c64 ~ 32     ~ 8. ~ 64 c64 ~ 32 ~
+    %    8. ~ 64 a64 ~ 32 ~ a16 ~      a16 ~ 32 b32 ~
+
+    %    \bar "!"
+    %    \mark \markup { \box \bold "B" }
+    %    s8
 }
 
 cello-a-rehearsal-b = \new Voice \relative c' {
@@ -112,9 +152,11 @@ cello-a-rehearsal-b = \new Voice \relative c' {
         } ) \!
         \breathe
 
-        \repeat tremolo 16 cis64~ \p
+        \repeat tremolo 16
+            \footnote #'(-3 . 2) \air-sound-note
+            cis64~ \p
             ^\markup {\small \concat { \italic "m. pont." ", almost " \italic "tonlos"} }
-            ^\markup { \small "IV" }
+            ^\markup { \small "II" }
             \fermata
             \espressivo
         \mark "freely"
@@ -135,7 +177,7 @@ cello-a-rehearsal-b = \new Voice \relative c' {
     | <<
         {
             \clef "bass" <c,, g'>4---> \sfp \< ^\markup { \updownbow } ~
-                <c g'>8 ~ <c g'> \ff \laissezVibrer r8
+                <c g'>8 ~ \tuplet 3/2 { <c g'>32 \ff \laissezVibrer r16 } r8
         }
         \new Staff \with {
             \remove "Time_signature_engraver"

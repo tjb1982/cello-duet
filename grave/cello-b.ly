@@ -10,12 +10,12 @@ ricochetTrillText = \markup {
 }
 square-pizz-note = \markup {
     \wordwrap \small {
-        The "\"ø\"" symbol here means articulate this pizzicato with the right hand at 1/2 of the string length (i.e., the first harmonic node of the notated fundamental); this gives it a clarinet-like sound (i.e., a square waveform). The intention with these pizzicatos is to play with different colors.
+        The "\"ø\"" symbol here means articulate this pizzicato with the right hand at 1/2 of the string length (i.e., the first harmonic node of the notated fundamental); this gives it a clarinet-like sound (i.e., a square waveform).
     }
 }
 left-hand-pizz-note = \markup {
     \wordwrap \small {
-        The left hand should become more and more percussive here (i.e., "\"left-hand pizzicato\"", "\"hammer-on/-off\"", etc.), foreshadowing the normal pizzicatos that follow, even while the right hand (bow) diminishes the volume of the pitches to \concat { \italic niente . }
+        The left hand should become more and more percussive here (i.e., "\"left-hand pizzicato\"", "\"hammer-on/-off\"", etc.), foreshadowing the normal pizzicatos that follow, even while the right hand (bowing) diminishes the volume of the pitches to \concat { \italic niente . }
     }
 }
 
@@ -46,14 +46,14 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
     \override Score.RehearsalMark.self-alignment-X = #LEFT
     \mark \markup { \box \a-sub-two \small { \concat { ( notifies " " \a-sub-one ) }}}
     \override TextSpanner.bound-details.left.text = \markup {\upright "III"}
-    <a b>4-- \p \> <a a>4-- a4. \fermata \breathe a8.-- \pp \< ( a16-- )
+    <a b>4-- ^\markup \sempre-ad-lib \p \> <a a>4-- a4. \fermata \breathe a8.-- \pp \< ( a16-- )
     | b8 ( a4. )
         a4.-- ( \p \> \tuplet 3/2 { a8-- g-- ) b  ( }
         a2~ \startTrillSpan
         \fermata \cross-head a8 \stopTrillSpan )
-        a4-- \pp \startTextSpan ( a8.-- \< a16-- )
+        a4-- \pp \startTextSpan ( a8.-- \< b16-- )
     | b8 ( a4. )
-        a4.-- ( a8-- ) b8 (
+        g4.-- ( b8-- ) b8 (
         a2~ \startTrillSpan \p \>
         \fermata \cross-head a8 \stopTrillSpan \! )
 
@@ -63,7 +63,7 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
     <<
         { \voiceOne
             s8 r8 b8 \fermata \laissezVibrer ^\mf -\markup{
-                \small \concat { "II, "  \italic "pont." " and " \italic "m.v." }
+                \small \concat { "II, "  \italic "m. vibr." }
             }
         }
         \new Voice { \voiceTwo
@@ -80,12 +80,12 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
         r64 a-.-> \p ( g-. b-. ) a4.~ \> \startTrillSpan \cross-head a8 \!
             \stopTrillSpan \stopTextSpan \breathe
             r8
-    | \cross-head a4~
-            ^\markup {\small "II"}
-            -\markup {\small \italic "poco vibrato"}
-        a4 \pp a4-- ( 8--~ \segno
-        \mark \markup { \box \bold "B" }
-        \bar "!" \hideNotes a8 ) \unHideNotes
+    %| \cross-head a4~
+    %        ^\markup {\small "II"}
+    %        -\markup {\small \italic "poco vibrato"}
+    %    a4 \pp a4-- ( 8--~ \segno
+    %    \mark \markup { \box \bold "B" }
+    %    \bar "!" \hideNotes a8 ) \unHideNotes
 }
 
 cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
@@ -138,7 +138,7 @@ cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
     | <<
         {
             <g d'>4---> ~ \sfp \< ^\markup { \updownbow }
-                <g d'>8 ~ <g d'> \ff \laissezVibrer r8
+                <g d'>8 ~ \tuplet 3/2 { <g d'>32 \ff \laissezVibrer r16 } r8
         }
         \new Staff \with {
             \remove "Time_signature_engraver"

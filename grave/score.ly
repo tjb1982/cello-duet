@@ -45,6 +45,7 @@ grave-score-a-sub-one = \score {
     \layout {
         indent = \main-indent
     }
+    \midi {}
 }
 
 grave-score-a-sub-two = \score {
