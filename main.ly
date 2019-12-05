@@ -6,11 +6,12 @@
 \include "presto/score.ly"
 
 #(set-default-paper-size "b4")
+%#(set-default-paper-size "c4")
 
 \book {
     \header {
         tagline = ""
-        title = "Sonata da chiesa"
+        title = Sonata
         composer = "Tom Brennan"
         instrument = "score (non-transposing)"
         %composer = "Mizzen Keel"
@@ -28,7 +29,7 @@
             %       (stretchability . 12))
         }
         \header {
-            subtitle = "I. \"the mass of the mechanics\""
+            subtitle = "I: Aria, \"the mass of the mechanics\""
             poet = "Sarah Mangold"
         }
         \mass-of-the-mechanics-score
@@ -43,9 +44,27 @@
             ragged-last = ##t
         }
         \header {
-            subtitle = "II."
+            subtitle = "II. Canon"
         }
         \presto-score
+    }
+
+    \bookpart {
+        \paper {
+            score-system-spacing =
+                #'((basic-distance . 23))
+            system-system-spacing =
+                %#'((basic-distance . 15))
+                #'((basic-distance . 20))
+            ragged-last = ##t
+        }
+        \header {
+            subtitle = "III. Sarabanda"
+        }
+        \grave-score
+        \grave-score-a-sub-one
+        \grave-score-a-sub-two
+        \grave-score-b
     }
 
     \bookpart {
@@ -57,12 +76,9 @@
             ragged-last = ##t
         }
         \header {
-            subtitle = "III."
+            subtitle = "IV."
         }
-        \grave-score
-        \grave-score-a-sub-one
-        \grave-score-a-sub-two
-        \grave-score-b
+        \presto-score
     }
 
 }

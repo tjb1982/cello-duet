@@ -30,7 +30,7 @@ cello-b = \new Voice \relative c {
     | f->-- f,~ f16 \tuplet 3/2 { g32 \> ( a d ) } \tuplet 3/2 { a'16-- ( b-- d-- ) }
     | e16. \pp \< ( d64 a g32-. ) fis-. d-. a-.
         g16 \p fis''8-- \pp \< ( \mark "poco riten." e16-- )
-    | d8-- \p \breathe r8 \mark "accel."
+    | d8-- \p \breathe r8 \mark "string."
         \tuplet 3/2 { a8-- \downbow \mf \< b-- \upbow ( c!-- ) } 
     | \mark \slightly-faster-than-tempo-one
         d16-- \upbow \ff d,,8-> \sf \downbow r16 r c''!8 \sf f,,!16
@@ -57,12 +57,12 @@ cello-b = \new Voice \relative c {
     | <<
         \new Voice {
             \voiceOne
-            r8 d8~ d4
-            | g,2~ | g8
+            r8 d8~ d8 r8
+            | r2~ | r8
         }
         {
             \voiceTwo
-            d4. \pp \< ( bes8
+            d,4. \pp \< ( bes8--
             | c2~ \! \>
             | c8 \! )
         }

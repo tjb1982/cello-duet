@@ -38,7 +38,7 @@ cello-a =
         fis16~ 8
         \set melismaBusyProperties = #'()
         \mark "poco riten." g32-. a-.
-    | bes8-- \) \p \breathe r8 \mark "accel."
+    | bes8-- \) \p \breathe r8 \mark "string."
         \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
     | \mark \slightly-faster-than-tempo-one
         r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
@@ -48,8 +48,10 @@ cello-a =
     | \acciaccatura a8 \tuplet 3/2 { gis16-.^"(chickens)" \acciaccatura gis8 e16-. ( a-. ) } \acciaccatura a8 gis16-- \( e-- \)
         fis4 \< \upbow
     %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
-    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32
-        \appoggiatura { \tuplet 5/4 {\clef "bass" c,,,!32 g'! a' \clef "treble" e' a } } b!32--
+    %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32
+        %\appoggiatura { \tuplet 5/4 {\clef "bass" c,,,!32 g'! a' \clef "treble" e' a } } b!32--
+    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r64
+        \clef "bass" c,,,!64 ( g'! a' \tuplet 3/2 { \clef "treble" e'32 a ) b!-- }
     | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16--
     | \time 3/4
         \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
@@ -72,9 +74,9 @@ cello-a =
         }
         \new Voice {
             \voiceTwo
-            r4 d,4 \open
-            | a'2 \open ~ \>
-            | a8 \!
+            r4 d,4 ( \open
+            | g,2 \open ~ \>
+            | g8 ) \!
         }
     >> a8 \rest a4 \rest \bar "|." 
 }
@@ -85,7 +87,7 @@ cello-a =
     young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es __ _
     dis -- per -- sion dis -- per -- sion
     or pre -- vi-ous ex -- per -- i -- ence
-    re -- car -- pet -- ing paths to doors to doors __ _ _ _
+    re -- car -- pet -- ing paths _ _ _ _ _ to doors to doors __ _ _ _
     the on -- ly per -- son I know I know __
     and si -- mi -- lar and si -- mil -- ar mo -- dels
 }

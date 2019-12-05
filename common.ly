@@ -25,5 +25,38 @@ updownbow = \markup {
     \concat { \musicglyph "scripts.downbow" \musicglyph "scripts.upbow" }
 }
 
-sempre-ad-lib = \markup {\small \italic "sempre ad lib."}
+sempre-ad-lib = \markup {\small \italic "semper ad lib."}
+
+lvpizz-note = \markup \wordwrap \small {
+    All left-hand pizzicatos should be \italic "laissez vibrer" unless otherwise noted.
+}
+
+ricochet = \markup { \small \italic "ricochet" }
+
+fl = \flageolet
+
+foos =
+#(define-music-function
+  (parser location x) (ly:music?)
+  #{
+    \displayMusic #x
+    #})
+
+apply =
+#(define-music-function
+    (event music)
+    (ly:event? ly:music?)
+  (let ((add-articulation
+        (lambda (x)
+          (ly:music-set-property! x 'articulations
+            (cons event (ly:music-property x 'articulations))
+          ))))
+    (for-some-music
+      (lambda (mus)
+        (cond
+          ;((music-is-of-type? mus 'event-chord) (add mus))
+          ((music-is-of-type? mus 'note-event) (add-articulation mus))
+          (else #f)))
+      music)
+  music))
 
