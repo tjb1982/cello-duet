@@ -25,11 +25,12 @@ cello-a =
     | a16.-- ( g32-- ) g16.-- ( a32-- ) cis-- d-- a-- cis-- g8--
     | \time 3/4 g4~ g8 r8 r4
     \unset melismaBusyProperties
-    | \time 4/4 r8 r16 r32 d' \mf cis4 \>
-    | g!16. \p a32 cis32 ( \tuplet 3/2 { d64 cis b } cis32. ) d64 a4~
-    | a8 r8 r4
+    | r8 r16 r32 d' \mf cis4 \>
+        g!16. \p a32 cis32 ( \tuplet 3/2 { d64 cis b } cis32. ) d64
+    | a4~ a8 r8 r4
     \set melismaBusyProperties = #'()
-    | R2 | R2 | r4 r8 e--^\markup {\small \italic ord.} \p \<
+    | R2.
+    | r4 r r8 e--^\markup {\small \italic ord.} \p \<
     | f!8-- [ \( r16 g16-- \) ] a8-- \mp \< \( b-- \)
     | cis ( d ) \mf r e-- \f
     | f!---> g-- r e,~ \( \pp \<
@@ -40,7 +41,7 @@ cello-a =
         \mark "poco riten." g32-. a-.
     | bes8-- \) \p \breathe r8 \mark "string."
         \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
-    | \mark \slightly-faster-than-tempo-one
+    | \tempo 8 = 88-92
         r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
     | e4~ \mark \poco-allarg 8 r8
     | \mark \tempo-one r8 a,-- \p gis16->-. ( e-. ) r8
@@ -50,9 +51,9 @@ cello-a =
     %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
     %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32
         %\appoggiatura { \tuplet 5/4 {\clef "bass" c,,,!32 g'! a' \clef "treble" e' a } } b!32--
-    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r64
-        \clef "bass" c,,,!64 ( g'! a' \tuplet 3/2 { \clef "treble" e'32 a ) b!-- }
-    | fis'4.-\markup { \small \italic "cresc. molto" } r16 g!16--
+    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis16-- r64
+        \clef "bass" c,,,!64 ( g'! a' \tuplet 3/2 { \clef "treble" e'16 ) a-- b!-- }
+    | fis'4.-\markup { \italic "cresc. molto" } r16 g!16--
     | \time 3/4
         \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
     | \time 2/4 r4 r8 e-- \p \<

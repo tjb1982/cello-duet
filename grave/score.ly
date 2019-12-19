@@ -37,7 +37,6 @@ grave-score-a-sub-one = \score {
                 midiInstrument = \midi-inst
                 \RemoveEmptyStaves
             } {
-                %\override Staff.TimeSignature.stencil = ##f
                 \cello-a-async-opening-ostinato
             }
         >>
@@ -90,5 +89,43 @@ grave-score-b = \score {
     \layout {
         indent = \short-indent
     }
+}
+
+grave-score-c-sub-one = \score {
+    \new StaffGroup {
+        <<
+            \new Staff \with {
+                instrumentName = \vc-one-short-name
+                shortInstrumentName = "" %\vc-one-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } {
+                \cello-a-rehearsal-c
+            }
+        >>
+    }
+    \layout {
+        indent = \main-indent
+    }
+    %\midi {}
+}
+
+grave-score-c-sub-two = \score {
+    \new StaffGroup {
+        <<
+            \new Staff \with {
+                instrumentName = \vc-two-short-name
+                shortInstrumentName = "" %\vc-two-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } {
+                \cello-b-rehearsal-c
+            }
+        >>
+    }
+    \layout {
+        indent = \main-indent
+    }
+    %\midi {}
 }
 

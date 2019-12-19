@@ -7,6 +7,7 @@
 
 #(set-default-paper-size "b4")
 %#(set-default-paper-size "c4")
+%#(set-default-paper-size "a3")
 
 \book {
     \header {
@@ -15,6 +16,18 @@
         composer = "Tom Brennan"
         instrument = "score (non-transposing)"
         %composer = "Mizzen Keel"
+    }
+
+    \bookpart {
+        \paper {}
+        \header {
+            subtitle = "Performance notes"
+            instrument = ""
+            composer = ""
+        }
+        \markup {
+            Stuff and stuff.
+        }
     }
 
     \bookpart {
@@ -35,19 +48,19 @@
         \mass-of-the-mechanics-score
     }
 
-    \bookpart {
-        \paper {
-            score-system-spacing =
-                #'((basic-distance . 23))
-            system-system-spacing =
-                #'((basic-distance . 15))
-            ragged-last = ##t
-        }
-        \header {
-            subtitle = "II. Canon"
-        }
-        \presto-score
-    }
+    %\bookpart {
+    %    \paper {
+    %        score-system-spacing =
+    %            #'((basic-distance . 23))
+    %        system-system-spacing =
+    %            #'((basic-distance . 15))
+    %        ragged-last = ##t
+    %    }
+    %    \header {
+    %        subtitle = "II. Canon"
+    %    }
+    %    \presto-score
+    %}
 
     \bookpart {
         \paper {
@@ -59,26 +72,28 @@
             ragged-last = ##t
         }
         \header {
-            subtitle = "III. Sarabanda"
+            subtitle = "III. Saraband"
         }
         \grave-score
         \grave-score-a-sub-one
         \grave-score-a-sub-two
         \grave-score-b
+        \grave-score-c-sub-one
+        \grave-score-c-sub-two
     }
 
-    \bookpart {
-        \paper {
-            score-system-spacing =
-                #'((basic-distance . 23))
-            system-system-spacing =
-                #'((basic-distance . 15))
-            ragged-last = ##t
-        }
-        \header {
-            subtitle = "IV."
-        }
-        \presto-score
-    }
+    %\bookpart {
+    %    \paper {
+    %        score-system-spacing =
+    %            #'((basic-distance . 23))
+    %        system-system-spacing =
+    %            #'((basic-distance . 15))
+    %        ragged-last = ##t
+    %    }
+    %    \header {
+    %        subtitle = "IV."
+    %    }
+    %    \presto-score
+    %}
 
 }

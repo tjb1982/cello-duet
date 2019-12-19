@@ -11,12 +11,23 @@ midi-inst = "cello"
 
 no-head = \once \override NoteHead.transparent = ##t
 cross-head = \once \override NoteHead.style = #'cross
+cross-head = \once \override NoteHead.color = #(x11-color 'LightGrey)
 
 slightly-faster-than-tempo-one = \markup {
     slightly faster than tempo I
 }
-tempo-one = "a tempo"
-poco-allarg = "poco allarg."
+tempo-one = "tempo I"
+poco-allarg = "allarg."
+
+a-sub-one = \markup { \concat {\italic "A" \sub \teeny 1} }
+a-sub-two = \markup { \concat {\italic "A" \sub \teeny 2} }
+letter-a =  \markup { \bold \box "A" \small \concat { "= " ( \a-sub-one ", " \a-sub-two ) } }
+
+c-sub-one = \markup { \concat {\italic "C" \sub \teeny 1} }
+c-sub-two = \markup { \concat {\italic "C" \sub \teeny 2} }
+letter-c =  \markup { \bold \box "C" \small \concat { "= " ( \c-sub-one ", " \c-sub-two ) } }
+
+c-sharp = \markup \concat { C \small \super \sharp }
 
 main-indent = #29
 short-indent = #4
@@ -32,8 +43,27 @@ lvpizz-note = \markup \wordwrap \small {
 }
 
 ricochet = \markup { \small \italic "ricochet" }
+ricochet = \markup { \small \italic "ric." }
 
 fl = \flageolet
+
+rustling-text = \markup {
+    \small \concat {"m. sul tasto" \upright " at the tip; rustling" }
+}
+
+angelic = \markup {\whiteout \small "angelic"}
+
+ten = \markup {\whiteout \small \italic "ten."}
+
+swelling = \markup {\small swelling}
+swell-note = \markup \wordwrap \small {
+    The dynamic "\"envelopes\"" here should be more bell-curved than linear, so that the sound
+    emerges more \italic subito than the \italic nientes at other points in the movement.
+}
+
+niente-notehead-note = \markup { \wordwrap \small {
+    The grey notehead here means \concat { \italic niente "." }
+}}
 
 foos =
 #(define-music-function

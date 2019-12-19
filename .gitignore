@@ -3,3 +3,4 @@
 *.mid*
 audio/
 .venv
+build/
