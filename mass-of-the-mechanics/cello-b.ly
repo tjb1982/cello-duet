@@ -22,8 +22,8 @@ cello-b = \new Voice \relative c {
         ( \clef "bass" a d, d ) fis, ( g! d' a' )
         d,,^\markup {\small \italic "ten." } \f \> ( d' d a' \clef "tenor" d e  gis a
     | b8 \p ) \breathe \clef "bass" e,,,16-- \mp ( d-- )
-        c8 \< r32 \clef "tenor" a''64 ( \mf \> d e a g f! e4 \mp \>
-    | \time 2/4 d8 \p ) r8 d128 [ ( c d c~ ) c32~ c16. ( \mp \< r32 b16-- ) ]
+        c8 r32 \clef "tenor" a''64 ( \p \< d e a g f! e4 \mp \>
+    | \time 2/4 d8 \p ) r8 d128 \mp [ ( c d c~ ) c32~ c16. ( \< r32 b16-- ) ]
     | a8-- ( \clef "bass" g,-- \mf ) r g'-- \f
     | f->-- f,~ f16 \tuplet 3/2 { g32 \> ( a d ) } \tuplet 3/2 { a'16-- ( b-- d-- ) }
     | e16. \pp \< ( d64 a g32-. ) fis-. d-. a-.

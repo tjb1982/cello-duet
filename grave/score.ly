@@ -88,6 +88,7 @@ grave-score-b = \score {
     }
     \layout {
         indent = \short-indent
+        short-indent = \short-indent
     }
 }
 

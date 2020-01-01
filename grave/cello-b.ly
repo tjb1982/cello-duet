@@ -33,8 +33,8 @@ cello-b = \new Voice \relative c' {
     \set beatStructure = 4,3,2
     \clef "tenor"
     r4 \footnote #'(-2 . 2) \niente-notehead-note 
-        \cross-head a4^"II"^\markup \whiteout {\small \italic "poco vibrato"}
-             -\markup {\small \italic "con sord."} ~ \< a4. \pp ~ a4~
+        \cross-head a4^"II"^\markup \whiteout {\small \italic "poco vibrato, con sord."}
+            ~ \< a4. \pp ~ a4~
     | 4 g \< b4. \p a4-- \>
     | a4-- 4~ \pp 4. <a g>4 \<
     | \mark \letter-a
@@ -187,7 +187,7 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
             \bar "!" \hideNotes a8 \unHideNotes
 }
 
-cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
+cello-b-rehearsal-b = \new Voice \relative c' {
     \once \omit Staff.TimeSignature
     \compoundMeter #'((4 8) (3 8) (2 8))
     \set subdivideBeams = ##t
@@ -234,30 +234,66 @@ cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
     | 4 \pp \< g b4. a8 g
     | g4 a4 d,4. \mp \> a'4~
     | <a a>4 \pp \< <a g> <a b>4 <a a>8 <a d,>4
-    | <<
+    | \clef "bass" <g, d'>4-- \mp -\markup {\italic "cresc."}
+        <g d'>4 ~
+     <<
         {
-            \clef "bass" <g, d'>4-- \mp -\markup {\italic "cresc."}
-                <g d'>4 ~ <g d'>8 ~
-                <g \laissezVibrer d'>8 \mf r8 a'4 \p \open
+            \voiceTwo
+            <g d'>8 ~
+            <g \laissezVibrer d'>8 \mf r8 a'4 \p \open
         }
-        \new Staff \with {
+        \new Staff = "b-top" \with {
             \remove "Time_signature_engraver"
             alignAboveContext = "cello-b"
         } {
-            \clef "tenor"
-            r2 \bar "!"
-            r8
-            \tuplet 3/2 {
-                d,32 \open \pp -\markup {
-                    \small { "II," \italic "flag., molto flautando" }
-                } ( d' \clef "treble" a'
-            }
-            \tuplet 9/8 { d64 fis a c d c a fis d }
-            \tuplet 3/2 { a32 \clef "tenor" d, d, \open ~ ) }
+            \voiceOne
+            \clef "treble"
             \bar "!"
-            d8 a'-- \p
+            s8
+            \override TextScript.padding = #8
+            \tuplet 3/2 {
+                \once \override Stem.details.beamed-lengths = #'(18)
+                \change Staff = "cello-b" d,32 \open ( \change Staff = "b-top"
+                \oneVoice d' \pp -\markup {
+                    \small { "II," \italic "flag., molto flautando" }
+                } a'
+            }
+            \ottava 1
+            \tuplet 9/8 { d64 fis a c d c a fis d }
+            \ottava 0
+            \tuplet 3/2 { a32 d,
+                \once \override Stem.details.beamed-lengths = #'(18)
+                \voiceOne \change Staff = "cello-b" d, \open ~ )
+            }
+            \bar "!"
+            d8 \change Staff = "cello-b" a'-- \p
         }
     >>
+    \oneVoice
+    %| <<
+    %    {
+    %        \clef "bass" <g, d'>4-- \mp -\markup {\italic "cresc."}
+    %            <g d'>4 ~ <g d'>8 ~
+    %            <g \laissezVibrer d'>8 \mf r8 a'4 \p \open
+    %    }
+    %    \new Staff \with {
+    %        \remove "Time_signature_engraver"
+    %        alignAboveContext = "cello-b"
+    %    } {
+    %        \clef "tenor"
+    %        r2 \bar "!"
+    %        r8
+    %        \tuplet 3/2 {
+    %            d,32 \open \pp -\markup {
+    %                \small { "II," \italic "flag., molto flautando" }
+    %            } ( d' \clef "treble" a'
+    %        }
+    %        \tuplet 9/8 { d64 fis a c d c a fis d }
+    %        \tuplet 3/2 { a32 \clef "tenor" d, d, \open ~ ) }
+    %        \bar "!"
+    %        d8 a'-- \p
+    %    }
+    %>>
     | \compoundMeter #'((3 8) (2 8))
         \set beatStructure = 3,2
         \once \override Hairpin.to-barline = ##f 
@@ -307,10 +343,10 @@ cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
     | r2 \clef "tenor" <<
         {
             \voiceOne
-            b''!4 ~
-            | b4 ~ b \fermata \breathe b8 ( c
+            b''!4 \mf ~
+            | b4 ~ b \fermata \breathe b8 \f ( c
             | c4 ~ 4. ) \fermata \breathe b8 ~
-            | b8 a ~ a4 \breathe r8 ^\markup {\whiteout \swelling} \cross-head a8 ~
+            | b8 a ~ a4 \breathe r8 \cross-head \footnote " " #'(-3.75 . 6.25) "" a8 ~
             | a2 \mp \cresc ~ 8  16-- ( d-- )
             | c4 \f ( a ) \fermata \breathe r8
         }
@@ -338,11 +374,12 @@ cello-b-rehearsal-b = \new Voice = "hate" \relative c' {
             | a8 f g g' g g, _\ten )
         }
     >>
-    | \oneVoice r8 \fermata r8
+    | \oneVoice r8 \fermata r8 \fermata \breathe
         \repeat tremolo 2 { \cross-head <a, b'>16 \cresc }
         \repeat tremolo 2 <a b'>16
         \bar "!"
-        \repeat unfold 3 { \repeat tremolo 2 <a b'>16 }
+        \repeat unfold 2 { \repeat tremolo 2 <a b'>16 }
+        \repeat tremolo 2 <a b'>16 \!
         \override Score.RehearsalMark.self-alignment-X = #LEFT
         \mark \letter-c
           \bar "!"
@@ -362,6 +399,16 @@ cello-b-rehearsal-c = \new Voice \relative c' {
         \repeat tremolo 2 { <a b'>16 }
     |
         \repeat unfold 3 { \repeat tremolo 2 { <a b'>16 } }
-        \repeat tremolo 2 { \cross-head <a b'>16 \pp }
+        <a b'>8 \p \fermata
+        \bar "!"
+        \clef "bass" e8 ~ ( <a, e'>4 ) \fermata
+        \bar "!"
+        r8 e -\markup { \small \italic "con sord." } ~ (
+    |
+        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8
+        \bar "!"
+        <a b>8. <b e>16 <fis' a>4 \fermata \trill \breathe
+        \bar "!"
+        
 }
 

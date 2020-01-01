@@ -57,8 +57,9 @@ ten = \markup {\whiteout \small \italic "ten."}
 
 swelling = \markup {\small swelling}
 swell-note = \markup \wordwrap \small {
-    The dynamic "\"envelopes\"" here should be more bell-curved than linear, so that the sound
-    emerges more \italic subito than the \italic nientes at other points in the movement.
+    The dynamic "\"envelopes\"" here and in the next bar should be more bell-curved than linear,
+    so that the sound emerges more \italic subito than the \italic nientes at other points
+    in the movement.
 }
 
 niente-notehead-note = \markup { \wordwrap \small {

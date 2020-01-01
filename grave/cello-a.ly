@@ -11,8 +11,8 @@ cello-a = \new Voice \relative c' {
     \clef "tenor"
     r2 \bar "!"
         \cross-head a4.^"II"^\markup {
-            \small \italic "poco vibrato"
-        } -\markup {\whiteout \small \italic "con sord."} ~ \< \bar "!"
+            \small \italic "poco vibrato, con sord."
+        } ~ \< \bar "!"
         a4
     | b4. c8-- \p \bar "!" 4.~ \> \bar "!" 4~
     | \cross-head c8 \! \cross-head a4~ \< 8 \bar "!" b4.~ \bar "!" 8 c~ \p
@@ -202,30 +202,46 @@ cello-a-rehearsal-b = \new Voice \relative c' {
     | \cross-head c8 \! \cross-head a4~ \< 8 \bar "!" a4.~ \mp \> \mark "poco string." \bar "!" a8 8
     | <a b>4. \pp \< <a c>8 \bar "!" <a c>4. \bar "!" a8-- ( <a d>-- )
     | 
+      <a d>4-- \mp \< <d, a'>4 ~
       <<
         {
-            <a d>4-- \mp \< <d, a'>4 ~
+            \voiceTwo
                 <d a'>4 ~
                 \mark "poco allarg."
-                <d a'>8 \mf \laissezVibrer r8 a'-- \p
+                <d \laissezVibrer a'>8 \mf r8 a'-- \p
         }
-        \new Staff \with {
+        \new Staff = "a-top" \with {
             \remove "Time_signature_engraver"
             alignAboveContext = "cello-a"
         } {
-            \clef "tenor" r2 r4
+            \override TextScript.padding = #6
+            \override Staff.OttavaBracket.padding = #1.5
+            \voiceOne
+            \clef "treble" s4
+            \override TupletBracket.positions = #'(12 . 14)
             \tuplet 3/2 {
-                a32 _[ \open \pp -\markup {
+                \once \override Stem.details.beamed-lengths = #'(18)
+                \change Staff = "cello-a" a32 [ \open (
+                \change Staff = "a-top" \oneVoice a' \pp _\markup {
                     \whiteout \small { "I," \italic "flag., molto flautando" }
-                } ( \clef "treble" a' e'
+                } e'
             }
+            \revert TupletBracket.positions
             \ottava 1
             \tuplet 9/8 { a64 cis e g a g e cis a }
             \ottava 0
-            \tuplet 3/2 { e32 a, \clef "tenor" a, ] \open ~ ) }
+            \override TupletBracket.positions = #'(-12.5 . -12.5)
+            %\override TupletBracket.stencil = ##f
+            \tuplet 3/2 { e32 a,
+                \once \override Stem.details.beamed-lengths = #'(18)
+                \change Staff = "cello-a" \voiceOne a, ] \open ~ )
+            }
+            \revert TupletBracket.direction
+            \revert TupletBracket.positions
             a8
         }
     >>
+    \oneVoice
     | \compoundMeter #'((3 8) (2 8))
         \set beatStructure = 3,2
         \mark "m. string."
@@ -280,18 +296,18 @@ cello-a-rehearsal-b = \new Voice \relative c' {
     | \clef "bass" <<
         {
             \voiceOne
-            d,! des, \fermata \breathe f' ( ^~
+            d,! \mf des, \fermata \breathe f' ( ^~
             | f e4. ) \fermata \breathe r8
-            | c'4 ~ 4 \breathe \clef "tenor" \cross-head g8 ^\swelling ~ 8 \mp ~
+            | c'4 ~ 4 \breathe \clef "tenor" \cross-head g8 ~ 8 \mp ~
             | 8 ~ \cross-head 8 \cross-head b \cresc ~ 8 ~ 4
             | b4 \f ( c ) \fermata \breathe r4 \!
         }
         \new Voice {
             \voiceTwo
-            g,8 ( aes )  aes4 \fermata \breathe g (
+            g,8 ( aes )  aes4 \fermata \breathe g \f (
             | c,! ~ c4. ) \fermata \breathe r8
             | c f'8 ~ 4 \breathe
-                \footnote #'(-2 . -2) \swell-note \cross-head c8 ~ 8 ~
+                \footnote #'(-1.5 . -5) \swell-note \cross-head c8 ~ 8 ~
             | 8 ~ \cross-head 8 \cross-head e ~ 8 ~ 4
             | e ~ 4 \fermata \breathe r4
         }
@@ -301,7 +317,7 @@ cello-a-rehearsal-b = \new Voice \relative c' {
             \voiceOne
             | \clef "treble" c''4 ^\p -\angelic ( ~
                 4 ~ 4 ~
-            | \mark "allarg." 4 ~ 4 ~ 8 ~ 8 ^\ten
+            | \mark "allarg." 4 ~ 4 ~ 8 ~ 8 ^\ten ~
             %| b4 ^\> \fermata ) \breathe r4 \!
         }
         \new Voice {
@@ -316,8 +332,8 @@ cello-a-rehearsal-b = \new Voice \relative c' {
         \set subdivideBeams = ##t
         \set baseMoment = #(ly:make-moment 1/8)
         \set beatStructure = 2,2,3,2
-        b'8 \> \fermata ) ~ 8 ~ 
-            \mark "m. string." 8 ~ \cross-head 8 \!
+        c'8 \> \fermata b8 \! ) \fermata \breathe
+            \mark "m. string." r8 ~ r8
             \repeat tremolo 2 { \cross-head <cis, dis'>16 \cresc }
             \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
         \mark \letter-c
@@ -331,16 +347,57 @@ cello-a-rehearsal-c = \new Voice \relative c {
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
-    \clef "tenor"
+    \clef "treble"
+    \key a \major
     \partial 4
-        \repeat tremolo 2 <cis dis'>16 \cresc
+        \repeat tremolo 2 <cis' dis'>16 \cresc
         \repeat tremolo 2 <cis dis'>16
     | \override Score.RehearsalMark.self-alignment-X = #LEFT
         \mark "allarg."
         \repeat tremolo 2 <cis dis'>16 \f
-        \repeat unfold 3 { \repeat tremolo 2 <cis dis'>16 }
+        \repeat tremolo 2 <cis dis'>16 \dim 
+        \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
         \bar"!"
         \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
-        dis'8
+        dis'8 \p ~
+        \bar "!"
+        \tempo "come prima" 8 = 72-76
+        \tuplet 3/2 { 16 e-- -\markup {\small \italic "sweetly"} dis'-- } 8 \< ~
+    |
+        \tuplet 5/4 { 8 \fermata 8 e-> \! \> cis8. e,16 ( }
+        \bar "!"
+        b'8.. ) dis,32 ( gis8  ~
+        \bar "!"
+        \tuplet 13/8 { 32 \! ) a ( \clef "tenor" a,, cis e gis a fis e ) \clef "bass" a, \< ( fis b, e }
+    |
+        \tuplet 5/4 { d! ) fis, ( d' cis ) a ( } cis8 \! \> e,8. ) fis!16 (
+        \bar "!"
+        d!8 b'4 \fermata ) \!
+        \bar "!"
+        r16 \clef "tenor" cis
+            -\markup { \small \italic "con sord." }
+            \pp ( a'16. ) b,32 (
+    |
+        cis'8 ) \breathe \tuplet 3/2 { cis,16 [ ( e a } gis8. ) gis'16-- ]
+        \bar "!"
+        fis4. \trill \espressivo \breathe
+        \bar "!"
+        r8 \fermata \clef "bass" d,,8 \< (
+    |
+        cis'16. ) d,32 ( e8.. ) cis'32 ~ 8 ~
+        \bar "!"
+        32 d-. b' ( a ) \tuplet 3/2 { e16-. \mf \> fis' ( e ) }
+            \tuplet 3/2 { a,-- \open \clef "treble" \acciaccatura gis' e'-- dis ~ }
+        \bar "!"
+        4 \p \trill
+    |
+        \pitchedTrill cis2 _~ \pp \espressivo \startTrillSpan dis
+        \bar "!"
+        \cross-head 8 \stopTrillSpan \breathe \clef "bass" fis,, \mp (
+        <g,! _\laissezVibrer a'~>8 \espressivo
+        \bar "!"
+        <a' e'>4 ) \fermata
+    |
+        
 }
 
