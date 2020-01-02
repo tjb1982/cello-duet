@@ -365,7 +365,7 @@ cello-b-rehearsal-b = \new Voice \relative c' {
             \voiceOne
                          b' ^\p -\angelic ( ~
             | b8 a ~ 4 g
-            | r4 r4 r8 f ^\ten )
+            | f8 r8 r4 r8 f ^\ten )
         }
         \new Voice {
             \voiceTwo
@@ -380,6 +380,7 @@ cello-b-rehearsal-b = \new Voice \relative c' {
         \bar "!"
         \repeat unfold 2 { \repeat tremolo 2 <a b'>16 }
         \repeat tremolo 2 <a b'>16 \!
+        \clef "bass"
         \override Score.RehearsalMark.self-alignment-X = #LEFT
         \mark \letter-c
           \bar "!"
@@ -392,16 +393,17 @@ cello-b-rehearsal-c = \new Voice \relative c' {
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
-    \clef "tenor"
+    \clef "bass"
+    \key a \major
     \partial 4
         \mark "allarg."
-        \repeat tremolo 2 { <a b'>16 \f \dim }
+        \repeat tremolo 2 { <a, b'>16 \f \dim }
         \repeat tremolo 2 { <a b'>16 }
     |
         \repeat unfold 3 { \repeat tremolo 2 { <a b'>16 } }
         <a b'>8 \p \fermata
         \bar "!"
-        \clef "bass" e8 ~ ( <a, e'>4 ) \fermata
+        \clef "bass" e'8 ~ ( <a, e'>4 ) \fermata
         \bar "!"
         r8 e -\markup { \small \italic "con sord." } ~ (
     |

@@ -66,6 +66,10 @@ niente-notehead-note = \markup { \wordwrap \small {
     The grey notehead here means \concat { \italic niente "." }
 }}
 
+air-sound-note = \markup \wordwrap \small {
+    The articulation of this \c-sharp (i.e., the duration comprising all three tied notes) should transition from \italic {molto ponticello} to "\"pitch-colored\" noise." This should be made by first becoming so \italic { sul pont. } that the pitch becomes almost indiscernable (a.k.a., \concat { \italic "tonlos" ";" } "however," the mute will prevent the bow from actually playing on top of the "bridge)," and then lift the left-hand stopping finger so that it isn't stopping the string on the fingerboard, but is instead touching the \c-sharp as if it were a harmonic node, while also touching one or more fingers in a similar manner behind this location, which prevents the possibility of any natural harmonic sounding. Give it lots of bow, slowing the tremolo down gradually to end on a single down-bow. But be very careful not to bow hard enough to produce "\"scratch tone\"" effects; the whole event should ultimately be "\"pretty.\"" And although there's a lot of process here, this gesture shouldn't last an unduly long time.
+}
+
 foos =
 #(define-music-function
   (parser location x) (ly:music?)

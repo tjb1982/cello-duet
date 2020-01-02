@@ -1,7 +1,3 @@
-air-sound-note = \markup \wordwrap \small {
-    The articulation of this \c-sharp (i.e., the duration comprising all three tied notes) should transition from \italic {molto ponticello} to "\"pitch-colored\" noise." This should be made by first becoming so \italic { sul pont. } that the pitch becomes almost indiscernable (a.k.a., \concat { \italic "tonlos" ";" } "however," the mute will prevent the bow from actually playing on top of the "bridge)," and then lift the left-hand stopping finger so that it isn't stopping the string on the fingerboard, but is instead touching the \c-sharp as if it were a harmonic node, while also touching one or more fingers in a similar manner behind this location, which prevents the possibility of any natural harmonic sounding. Give it lots of bow, slowing the tremolo down gradually to end on a single down-bow. But be very careful not to bow hard enough to produce "\"scratch tone\"" effects; the whole event should ultimately be "\"pretty.\"" And although there's a lot of process here, this gesture shouldn't last an unduly long time.
-}
-
 cello-a = \new Voice \relative c' {
     \tempo "Grave" 8 = 72-76
     \compoundMeter #'((4 8) (3 8) (2 8))
@@ -347,6 +343,7 @@ cello-a-rehearsal-c = \new Voice \relative c {
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
+    %\override TupletNumber #'text = #tuplet-number::calc-fraction-text
     \clef "treble"
     \key a \major
     \partial 4
@@ -361,7 +358,7 @@ cello-a-rehearsal-c = \new Voice \relative c {
         \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
         dis'8 \p ~
         \bar "!"
-        \tempo "come prima" 8 = 72-76
+        \tempo "Grave" 8 = 72-76
         \tuplet 3/2 { 16 e-- -\markup {\small \italic "sweetly"} dis'-- } 8 \< ~
     |
         \tuplet 5/4 { 8 \fermata 8 e-> \! \> cis8. e,16 ( }
@@ -398,6 +395,12 @@ cello-a-rehearsal-c = \new Voice \relative c {
         \bar "!"
         <a' e'>4 ) \fermata
     |
-        
+        r8 e,4 ( fis8 \bar "!" d!4. ) \fermata
+        r8 e ~ (
+    |
+        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8
+        \bar "!"
+        <a b>8. <b e>16 <fis' a>4 \fermata \trill \breathe
+        \bar "!"
 }
 

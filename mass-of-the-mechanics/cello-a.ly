@@ -56,8 +56,8 @@ cello-a =
     | fis'4.-\markup { \italic "cresc. molto" } r16 g!16--
     | \time 3/4
         \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
-    | \time 2/4 r4 r8 e-- \p \<
-    | f!8-- \( [ r16 g-- \) ] a8-- \( b-- \)
+    | \time 2/4 r4 r8 e-- \p
+    | f!8-- \( [ r16 g-- \) ] a8-- \< \( b-- \)
     \set melismaBusyProperties = #'()
     | cis8-- ( \mp d-- ) r8
     \unset melismaBusyProperties
