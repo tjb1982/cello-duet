@@ -302,7 +302,7 @@ cello-a-rehearsal-b = \new Voice \relative c' {
             \voiceTwo
             g,8 ( aes )  aes4 \fermata \breathe g \f (
             | c,! ~ c4. ) \fermata \breathe r8
-            | c f'8 ~ 4 \breathe
+            | c \mf f'8 ~ 4 \breathe
                 \footnote #'(-1.5 . -5) \swell-note \cross-head c8 ~ 8 ~
             | 8 ~ \cross-head 8 \cross-head e ~ 8 ~ 4
             | e ~ 4 \fermata \breathe r4
@@ -313,7 +313,7 @@ cello-a-rehearsal-b = \new Voice \relative c' {
             \voiceOne
             | \clef "treble" c''4 ^\p -\angelic ( ~
                 4 ~ 4 ~
-            | \mark "allarg." 4 ~ 4 ~ 8 ~ 8 ^\ten ~
+            | \mark "allarg." 4 ~ 4 ~ 8 ~ 8 ^\ten
             %| b4 ^\> \fermata ) \breathe r4 \!
         }
         \new Voice {
@@ -329,12 +329,14 @@ cello-a-rehearsal-b = \new Voice \relative c' {
         \set baseMoment = #(ly:make-moment 1/8)
         \set beatStructure = 2,2,3,2
         c'8 \> \fermata b8 \! ) \fermata \breathe
-            \mark "m. string." r8 ~ r8
+            \mark "m. accel." r8 r8
+            \bar "!"
+            r8
             \repeat tremolo 2 { \cross-head <cis, dis'>16 \cresc }
-            \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
-        \mark \letter-c
-          \bar "!"
-          \hideNotes 8 \! \unHideNotes
+            \repeat tremolo 2 { <cis dis'>16 }
+            \bar "!"
+            \mark \letter-c
+            \hideNotes 8 \! \unHideNotes
 }
 
 cello-a-rehearsal-c = \new Voice \relative c {
@@ -343,6 +345,8 @@ cello-a-rehearsal-c = \new Voice \relative c {
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
+    \override Score.RehearsalMark.self-alignment-X = #LEFT
+    \mark \markup { \box \c-sub-one \small { \concat { ( notifies " " \c-sub-two ) }}}
     %\override TupletNumber #'text = #tuplet-number::calc-fraction-text
     \clef "treble"
     \key a \major
@@ -350,8 +354,8 @@ cello-a-rehearsal-c = \new Voice \relative c {
         \repeat tremolo 2 <cis' dis'>16 \cresc
         \repeat tremolo 2 <cis dis'>16
     | \override Score.RehearsalMark.self-alignment-X = #LEFT
-        \mark "allarg."
         \repeat tremolo 2 <cis dis'>16 \f
+        \mark "allarg."
         \repeat tremolo 2 <cis dis'>16 \dim 
         \repeat unfold 2 { \repeat tremolo 2 <cis dis'>16 }
         \bar"!"
@@ -375,18 +379,19 @@ cello-a-rehearsal-c = \new Voice \relative c {
             -\markup { \small \italic "con sord." }
             \pp ( a'16. ) b,32 (
     |
-        cis'8 ) \breathe \tuplet 3/2 { cis,16 [ ( e a } gis8. ) gis'16-- ]
+        cis'8 ) \breathe \tuplet 3/2 { cis,16 [ ( e a } fis8. ) gis'16 ( ]
         \bar "!"
-        fis4. \trill \espressivo \breathe
+        fis4. ) \trill \espressivo \breathe
         \bar "!"
         r8 \fermata \clef "bass" d,,8 \< (
     |
-        cis'16. ) d,32 ( e8.. ) cis'32 ~ 8 ~
+        %cis'16. ) d,32 ( e8.. ) cis'32 ~ 8 ~
+        cis'4. ~ 16 fis16 )
         \bar "!"
-        32 d-. b' ( a ) \tuplet 3/2 { e16-. \mf \> fis' ( e ) }
-            \tuplet 3/2 { a,-- \open \clef "treble" \acciaccatura gis' e'-- dis ~ }
+        32 ( e ) cis' ( b ) \tuplet 3/2 { d,16 \open \mf \> fis' ( e ) }
+            \tuplet 3/2 { a,-- \open \clef "treble" \acciaccatura gis' e'-- cis-- }
         \bar "!"
-        4 \p \trill
+        dis'8 \p ( dis,8 )
     |
         \pitchedTrill cis2 _~ \pp \espressivo \startTrillSpan dis
         \bar "!"
@@ -395,12 +400,31 @@ cello-a-rehearsal-c = \new Voice \relative c {
         \bar "!"
         <a' e'>4 ) \fermata
     |
-        r8 e,4 ( fis8 \bar "!" d!4. ) \fermata
-        r8 e ~ (
+        r8 e,4 ( fis8
+        \bar "!"
+        d!4. ) \fermata
+        \bar "!"
+        r8 e \mf ~ (
     |
-        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8
+        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8 \>
         \bar "!"
-        <a b>8. <b e>16 <fis' a>4 \fermata \trill \breathe
+        <a b>8. <b e>16 \acciaccatura fis'8 <fis a~>8
         \bar "!"
+        a8 \fermata \trill \p \breathe a,16. \mf \open \clef "treble" e''32 (
+    |
+        dis4 \> ) a16. ( \p b32 )
+        dis32 ( \tuplet 3/2 { e64 dis cis } dis32. ) e64 (
+        \bar "!"
+        b4~ b8 )
+        \bar "!"
+        \acciaccatura a8 a,8 \clef "bass" b,16 ( e
+    |
+        a,4. ) e16 ( a
+        \bar "!"
+        d,!4 ~ d16 g--
+        \bar "!"
+        g4 \trill \fermata ~ )
+    |
+        \hideNotes g \unHideNotes
 }
 

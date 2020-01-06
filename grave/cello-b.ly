@@ -180,9 +180,9 @@ cello-b-async-opening-ostinato = \new Voice \relative c' {
             a4 \startTextSpan \espressivo
     %12
     | r8 \stopTextSpan \cross-head a8~
-            -\markup {\small \italic "senza sord.; poco vibrato come prima"}
+            -\markup {\small \italic "senza sord.; sul D, poco vibrato come prima"}
         a4 \pp \bar "!"
-        a4-- ( 8~ ) \segno
+        a4-- 8~
             \mark \markup { \box \bold "B" }
             \bar "!" \hideNotes a8 \unHideNotes
 }
@@ -345,7 +345,7 @@ cello-b-rehearsal-b = \new Voice \relative c' {
             \voiceOne
             b''!4 \mf ~
             | b4 ~ b \fermata \breathe b8 \f ( c
-            | c4 ~ 4. ) \fermata \breathe b8 ~
+            | c4 ~ 4. ) \fermata \breathe b8 \mf ~
             | b8 a ~ a4 \breathe r8 \cross-head \footnote " " #'(-3.75 . 6.25) "" a8 ~
             | a2 \mp \cresc ~ 8  16-- ( d-- )
             | c4 \f ( a ) \fermata \breathe r8
@@ -363,7 +363,7 @@ cello-b-rehearsal-b = \new Voice \relative c' {
     <<
         {
             \voiceOne
-                         b' ^\p -\angelic ( ~
+                         b' ^\p ( ~
             | b8 a ~ 4 g
             | f8 r8 r4 r8 f ^\ten )
         }
@@ -393,24 +393,73 @@ cello-b-rehearsal-c = \new Voice \relative c' {
     \set subdivideBeams = ##t
     \set baseMoment = #(ly:make-moment 1/8)
     \set beatStructure = 4,3,2
+    \override Score.RehearsalMark.self-alignment-X = #LEFT
+    \mark \markup { \box \c-sub-two \small { \concat { ( awaits " " \c-sub-one ) }}}
     \clef "bass"
     \key a \major
     \partial 4
-        \mark "allarg."
         \repeat tremolo 2 { <a, b'>16 \f \dim }
+        \mark "allarg."
         \repeat tremolo 2 { <a b'>16 }
     |
         \repeat unfold 3 { \repeat tremolo 2 { <a b'>16 } }
-        <a b'>8 \p \fermata
+        <a b'>8 \p
         \bar "!"
-        \clef "bass" e'8 ~ ( <a, e'>4 ) \fermata
+        \tempo "Grave" 8 = 72-76
+        \clef "bass" b'8 ~ ( <a,~ b'>4 \fermata
         \bar "!"
-        r8 e -\markup { \small \italic "con sord." } ~ (
+        a8 ) \breathe e -\markup {\small \italic "con sord."} \mp ~ (
     |
-        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8
+        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8 ( \>
         \bar "!"
-        <a b>8. <b e>16 <fis' a>4 \fermata \trill \breathe
+        <a b>8. <b e>16 \acciaccatura fis'8 <fis a~>8
         \bar "!"
+        a8 ) \fermata \trill \p \breathe \clef "bass" d,,,8 ( \<
+    |
+        <e b'>8 <b' e>8 \clef "tenor" <e a>4 ) \mf \>
+        \bar "!"
+        <a b>8 ( <b e>8. fis'16
+        \bar "!"
+        \clef "treble" a4 ) ~ \fermata \trill \p
+    |
+        \tuplet 5/4 { 8 \< \fermata dis8 e-> \! \> cis8. dis16 ( }
+        \bar "!"
+        b8.. ) b,32 ( e32-- ) gis-- a-- fis--
+        \bar "!" 
+        gis16 ~ \<
+        \tuplet 3/2 { gis32 fis-. ( e-. ) }
+        e64^\markup { \small \italic "ad lib." }
+        ( \clef "bass" a, d, d ) fis, ( g! d' a' )
+    |
+        \tuplet 7/4 { d,,32^\markup {\small \italic "ten." } \f \> ( d' d a' \clef "tenor" e'  gis! a }
+        b8 ~ 8 \p ) \breathe <<
+            { \voiceOne b16 \mp \> ( a ) }
+            \new Voice { \voiceTwo fis8 }
+        >>
+        \bar "!" \oneVoice
+        <fis a>8 <b, e>8. ( <a b>16 )
+        \bar "!"
+        \clef "bass" <e a>8 ( <b e> )
+    |
+        <d e>4-- \p \> <d d>4--
+        \mark \markup { \small \musicglyph "scripts.segno" } 
+        \bar ".|:"
+        d4. -\markup {\small \italic "repeat ad lib."} \trill \fermata \breathe
+        \bar "!"
+        \once \override Hairpin.to-barline = ##f 
+        d8.-- \pp \< ( d16-- )
+    |
+        e8 \p \> ( d4. )
+        \bar "!"
+        d4. ~ \pp \<
+        \bar "!"
+        \tuplet 3/2 { d8 a ( e' }
+    |
+        d2 ) ~ \p \> \startTrillSpan \fermata
+        \bar ":|."
+        d4. \! ~ \stopTrillSpan
+        \bar "!"
+        d8 r8
         
 }
 
