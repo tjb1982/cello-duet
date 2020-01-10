@@ -1,7 +1,7 @@
 \include "grave/cello-a.ly"
 \include "grave/cello-b.ly"
 
-grave-score = \score {
+grave-score-intro = \score {
     \new StaffGroup {
         <<
             \new Staff \with {
@@ -128,5 +128,30 @@ grave-score-c-sub-two = \score {
         indent = \main-indent
     }
     %\midi {}
+}
+
+grave-score-d = \score {
+    \new StaffGroup {
+        <<
+            \new Staff = "cello-a" \with {
+                instrumentName = \vc-one-short-name
+                shortInstrumentName = \vc-one-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } { \cello-a-rehearsal-d }
+            \new Staff = "cello-b" \with {
+                instrumentName = \vc-two-short-name
+                shortInstrumentName = \vc-two-short-name
+                midiInstrument = \midi-inst
+                \RemoveEmptyStaves
+            } {
+                \cello-b-rehearsal-d
+            }
+        >>
+    }
+    \layout {
+        indent = \short-indent
+        short-indent = \short-indent
+    }
 }
 

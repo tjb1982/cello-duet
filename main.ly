@@ -1,6 +1,7 @@
 \version "2.19"
 
 \include "common.ly"
+\include "performance-notes.ly"
 \include "grave/score.ly"
 \include "mass-of-the-mechanics/score.ly"
 \include "presto/score.ly"
@@ -18,17 +19,7 @@
         %composer = "Mizzen Keel"
     }
 
-    \bookpart {
-        \paper {}
-        \header {
-            subtitle = "Performance notes"
-            instrument = ""
-            composer = ""
-        }
-        \markup {
-            Stuff and stuff.
-        }
-    }
+    \bookpart { \performance-notes }
 
     \bookpart {
         \paper {
@@ -74,12 +65,13 @@
         \header {
             subtitle = "III. Saraband"
         }
-        \grave-score
+        \grave-score-intro
         \grave-score-a-sub-one
         \grave-score-a-sub-two
         \grave-score-b
         \grave-score-c-sub-one
         \grave-score-c-sub-two
+        \grave-score-d
     }
 
     %\bookpart {
