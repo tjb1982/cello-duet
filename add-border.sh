@@ -83,3 +83,6 @@ convert -verbose -density 750 -units pixelspercentimeter main-converted-rect.pdf
     -colorspace gray -quality 100 -background white -flatten ./images/$x-$name.png
 done
 
+rm ./canvas* ./*-converted*
+zip ./images.zip ./images/*
+

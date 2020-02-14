@@ -30,19 +30,21 @@ cello-a =
     | a4~ a8 r8 r4
     \set melismaBusyProperties = #'()
     | R2.
-    | r4 r r8 e--^\markup {\small \italic ord.} \p \<
+    |
+        r8 \clef "bass" e,,16-- \mp ( d-- ) c8 \laissezVibrer r8
+        r8 \clef "treble" e''--^\markup {\small \italic ord.} \p \<
     | f!8-- [ \( r16 g16-- \) ] a8-- \mp \< \( b-- \)
-    | cis ( d ) \mf r e-- \f
-    | f!---> g-- r e,~ \( \pp \<
+    | cis-- \espressivo \mf ( d-- ) \mp r e---> \f \downbow
+    | f!---> \downbow g---> \downbow r8 \mark "poco riten." e,8~ \( \mp
     | e8. fis16
         \unset melismaBusyProperties
-        fis16~ 8
+        fis16~ 8 \>
         \set melismaBusyProperties = #'()
-        \mark "poco riten." g32-. a-.
-    | bes8-- \) \p \breathe r8 \mark "string."
+        g32-. a-.
+    | bes8-- \p \) \fermata \breathe r8 \mark "string."
         \tuplet 3/2 { c-- \downbow \mf \< d-- \upbow \( e-- \) }
     | \tempo 8 = 88-92
-        r16 \ff fis8-- ( \sf \downbow ( fis,16-- ) g8.-- ( fis'16-- )
+        r16 \ff <a, fis'>8-- ( \sf \downbow ( fis16-- ) g8.-- ( fis'16-- )
     | e4~ \mark \poco-allarg 8 r8
     | \mark \tempo-one r8 a,-- \p gis16->-. ( e-. ) r8
     | r8. a16-- gis-.-> ( e-. ) r a--
@@ -51,15 +53,19 @@ cello-a =
     %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32 b!
     %| r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis8-- r16 r32
         %\appoggiatura { \tuplet 5/4 {\clef "bass" c,,,!32 g'! a' \clef "treble" e' a } } b!32--
-    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ ( a-- e'-- ) ] } dis16-- r64
-        \clef "bass" c,,,!64 ( g'! a' \tuplet 3/2 { \clef "treble" e'16 ) a-- b!-- }
-    | fis'4.-\markup { \italic "cresc. molto" } r16 g!16--
+    | r16 \! d'-- \f \tuplet 3/2 { cis-- [ a-- e'-- ] } dis16---> r64
+        \clef "bass" c,,,!64 ( g'! a' \tuplet 3/2 { \clef "treble" e'16 ) a-- b!---> }
+    | \mark "poco string." fis'4.->-\markup { \italic "cresc. molto" } r16 g!16--
     | \time 3/4
-        \grace s8 a8 \ff ( a,8~ a4~ \> a8 \! ) r8
-    | \time 2/4 r4 r8 e-- \p
+        a8 \ff (
+        \mark "poco riten."
+        a,8~ a4~ \> a8 \! ) r8
+    | \time 2/4 r4 r8
+        \mark "a tempo"
+        e-- \p
     | f!8-- \( [ r16 g-- \) ] a8-- \< \( b-- \)
     \set melismaBusyProperties = #'()
-    | cis8-- ( \mp d-- ) r8
+    | cis8-- ( \mp \> d-- \! ) r8
     \unset melismaBusyProperties
         e~ \pp \(
     | e f!~ 4 \)
@@ -69,21 +75,21 @@ cello-a =
             \voiceOne
             {
                 r8 \clef "tenor" a-- \pp \< \acciaccatura a8 \( \tuplet 3/2 { g8. f16 e8 }
-                | e8^"II" \! d4.~
-                | d8 \)
+                | e8 \! \> d4.~
+                | d8 \) \!
             }
         }
         \new Voice {
             \voiceTwo
             r4 d,4 ( \open
-            | g,2 \open ~ \>
-            | g8 ) \!
+            | d8 ) r8 r4
+            | r8 \!
         }
     >> a8 \rest a4 \rest \bar "|." 
 }
 \addlyrics {
     a way to use the dic -- tion -- a -- ry or your int' rest _
-    the world's long -- est float -- ing bridge __
+    the world's long -- est float -- ing bridge _ _ _
     plac -- ing your hand be -- fore _ the chick -- ens
     young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es __ _
     dis -- per -- sion dis -- per -- sion

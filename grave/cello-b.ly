@@ -1,3 +1,5 @@
+\include "common.ly"
+
 multinoteRepeatText = \markup {
     \wordwrap \small {
         Unmeasured multi-note "\"trill\":" start somewhat slower, increase speed rapidily and maintain until the \concat { \italic niente "." }
@@ -322,7 +324,13 @@ cello-b-rehearsal-b = \new Voice \relative c' {
     | \compoundMeter #'((4 8) (2 8))
         <d, g>4 ~ 8 ~ d8 ) g,4-- ( \fl
     | <c f>4 \ff ~ 4 ) \breathe \clef "bass" c8 ~ c8 \glissando
-    | bes,,4 ~ <bes bes''> ~ <bes bes''>4 \fermata \breathe
+    |
+        \tag #'sounding { bes,,4 ~ <bes bes''> ~ <bes bes''>4 \fermata \breathe }
+        \tag #'transposing {
+            \trp c4 ~
+                <\trp c bes''> ~
+                <\trp c bes''>4 \fermata \breathe
+        }
     | r2 \clef "tenor" <<
         {
             \voiceOne
@@ -391,15 +399,27 @@ cello-b-rehearsal-c = \new Voice \relative c' {
         \tempo "Grave" 8 = 72-76
         \clef "bass" b'8 ~ ( <a,~ b'>4 \fermata
         \bar "!"
-        a8 ) \breathe e -\markup {\small \italic "con sord."} \mp ~ (
+        a8 ) \breathe
+                \tag #'sounding { e -\markup {\small \italic "con sord."} \mp ~ ( }
+                \tag #'transposing {
+                    \trp fis -\markup {\small \italic "con sord."} \mp ~ (
+                }
     |
-        <e b'>8 <b' e>4 ) \fermata \clef "tenor" <e a>8 ( \>
+            \tag #'sounding { <e b'>8 <b' e>4 ) \fermata }
+            \tag #'transposing { <\trp fis b>8 <b e>4 ) \fermata }
+        \clef "tenor" <e a>8 ( \>
         \bar "!"
         <a b>8. <b e>16 \acciaccatura fis'8 <fis a~>8
         \bar "!"
-        a8 ) \fermata \trill \p \breathe \clef "bass" d,,,8 ( \<
+        a8 ) \fermata \trill \p \breathe \clef "bass"
+            \tag #'sounding { d,,,8 ( \< }
+            \tag #'transposing {
+                \trp e8 ( \<
+            }
     |
-        <e b'>8 <b' e>8 \clef "tenor" <e a>4 ) \mf \>
+            \tag #'sounding { <e b'>8 <b' e>8 }
+            \tag #'transposing { <\trp fis b>8 <b e>8 }
+        \clef "tenor" <e a>4 ) \mf \>
         \bar "!"
         <a b>8 ( <b e>8. fis'16
         \bar "!"
@@ -412,9 +432,17 @@ cello-b-rehearsal-c = \new Voice \relative c' {
         gis16 ~ \<
         \tuplet 3/2 { gis32 fis-. ( e-. ) }
         e64^\markup { \small \italic "ad lib." }
-        ( \clef "bass" a, d, d ) fis, ( g! d' a' )
+        ( \clef "bass" a, d, d )
+            \tag #'sounding { fis, ( }
+            \tag #'transposing { \trp gis ( }
+            g! d' a' )
     |
-        \tuplet 7/4 { d,,32^\markup {\small \italic "ten." } \f \> ( d' d a' \clef "tenor" e'  gis! a }
+        \tuplet 7/4 {
+                \tag #'sounding { d,,32^\markup {\small \italic "ten." } \f \> ( }
+                \tag #'transposing {
+                    \trp e32^\markup {\small \italic "ten." } \f \> (
+                }
+            d' d a' \clef "tenor" e'  gis! a }
         b8 ~ 8 \p ) \breathe <<
             { \voiceOne b16 \mp \> ( a ) }
             \new Voice { \voiceTwo fis8 }
@@ -491,11 +519,22 @@ cello-b-rehearsal-d = \new Voice \relative c {
         <e bes'>4-- \espressivo ( <f a>8-- ) r8
         \bar "!"
         \clef "bass"
-        <bes,, d'>4. \espressivo
-        \bar "!"
-        <f' c'>8-- \breathe c'8 ^~
+            \tag #'sounding {
+                <bes,, d'>4. \espressivo
+                \bar "!"
+                <f' c'>8-- \breathe
+                c'8 ^~
+            }
+            \tag #'transposing {
+                <\trp c, d'>4. \espressivo
+                \bar "!"
+                <\trp f c'>8-- \breathe c'8 ^~
+            }
     |
-        <bes, c'>4 ~ 4 \fermata    
+            \tag #'sounding { <bes, c'>4 ~ 4 \fermata }
+            \tag #'transposing {
+                <\trp c c'>4 ~ 4 \fermata
+            }
         <<
             {
                 \voiceTwo

@@ -468,7 +468,7 @@ cello-a-rehearsal-d = \new Voice \relative c {
         \set subdivideBeams = ##t
         \set baseMoment = #(ly:make-moment 1/8)
         \set beatStructure = 4,3
-        a4 ~ 16 ) 16-- b32-- ( a-- g-- f-- )
+        a4 ~ 16 ) 16-- bes32-- ( a-- g-- f-- )
         \bar "!"
         g4 ~ 16 a (
     |

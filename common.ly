@@ -116,3 +116,9 @@ apply =
       music)
   music))
 
+%trp = \once \override NoteHead.style = #'diamond
+trp =
+#(define-music-function
+  (parser location x) (ly:music?)
+  #{ \tweak NoteHead.font-size 1
+     \tweak NoteHead.style #'diamond #x #})

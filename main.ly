@@ -7,63 +7,48 @@
 \include "presto/score.ly"
 
 #(set-default-paper-size "b4")
-%#(set-default-paper-size "c4")
-%#(set-default-paper-size "a3")
+
+composer = "Tom Brennan"
+main-title = "Sonata"
+subtitle-mass = "I: Aria, \"the mass of the mechanics\""
+subtitle-grave = "III. Saraband"
+
+poet = "Sarah Mangold"
 
 \book {
     \header {
         tagline = ""
-        title = Sonata
-        composer = "Tom Brennan"
-        instrument = "score (non-transposing)"
-        %composer = "Mizzen Keel"
+        title = \main-title
+        composer = \composer
+        instrument = "score (sounding)"
     }
 
-    \bookpart { \performance-notes }
+    \bookpart {
+        \performance-notes
+    }
 
     \bookpart {
         \paper {
-            %print-all-headers = ##t
             system-system-spacing =
                 #'((basic-distance . 25))
-            %last-bottom-spacing =
-            %    #'((basic-distance . 20))
-            %       (minimum-distance . 6)
-            %       (padding . 1)
-            %       (stretchability . 12))
         }
         \header {
-            subtitle = "I: Aria, \"the mass of the mechanics\""
-            poet = "Sarah Mangold"
+            subtitle = \subtitle-mass
+            poet = \poet
         }
         \mass-of-the-mechanics-score
     }
-
-    %\bookpart {
-    %    \paper {
-    %        score-system-spacing =
-    %            #'((basic-distance . 23))
-    %        system-system-spacing =
-    %            #'((basic-distance . 15))
-    %        ragged-last = ##t
-    %    }
-    %    \header {
-    %        subtitle = "II. Canon"
-    %    }
-    %    \presto-score
-    %}
 
     \bookpart {
         \paper {
             score-system-spacing =
                 #'((basic-distance . 23))
             system-system-spacing =
-                %#'((basic-distance . 15))
                 #'((basic-distance . 20))
             ragged-last = ##t
         }
         \header {
-            subtitle = "III. Saraband"
+            subtitle = \subtitle-grave
         }
         \grave-score-intro
         \grave-score-a-sub-one
@@ -74,18 +59,40 @@
         \grave-score-d
     }
 
-    %\bookpart {
-    %    \paper {
-    %        score-system-spacing =
-    %            #'((basic-distance . 23))
-    %        system-system-spacing =
-    %            #'((basic-distance . 15))
-    %        ragged-last = ##t
-    %    }
-    %    \header {
-    %        subtitle = "IV."
-    %    }
-    %    \presto-score
-    %}
+    %%%% transposing
+    \bookpart {
+        \paper {
+            system-system-spacing =
+                #'((basic-distance . 25))
+        }
+        \header {
+            subtitle = "I: Aria, \"the mass of the mechanics\""
+            poet = "Sarah Mangold"
+            instrument = "score (transposing)"
+        }
+        \mass-of-the-mechanics-score-tr
+    }
+
+    \bookpart {
+        \paper {
+            score-system-spacing =
+                #'((basic-distance . 23))
+            system-system-spacing =
+                #'((basic-distance . 20))
+            ragged-last = ##t
+        }
+        \header {
+            subtitle = "III. Saraband"
+            instrument = "score (transposing)"
+        }
+        \grave-score-intro-tr
+        \grave-score-a-sub-one
+        \grave-score-a-sub-two-tr
+        \grave-score-b-tr
+        \grave-score-c-sub-one
+        \grave-score-c-sub-two-tr
+        \grave-score-d-tr
+    }
 
 }
+
