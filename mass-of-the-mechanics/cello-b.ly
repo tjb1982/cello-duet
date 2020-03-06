@@ -1,5 +1,21 @@
 \include "common.ly"
 
+transposing-example = {
+        \tempo 8 = 88-92
+        <a d>16-- \upbow \ff
+                \tag #'sounding { <d,, g>8-> \sf \downbow }
+                \tag #'transposing { <\trp e g>8-> \sf \downbow }
+        r16 r c''!8 \sf
+            \tag #'sounding { f,,!16 }
+            \tag #'transposing { \trp g16 }
+    | r16 bes'8 \sf
+            \tag #'sounding { bes,,16 \mark \poco-allarg \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 } }
+            \tag #'transposing {
+                \trp c,,16 \mark \poco-allarg \tuplet 3/2 { \trp f!8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
+            }
+    | \acciaccatura { gis8^> } \mark \tempo-one a4. \harmonic \p \clef "bass"
+}
+
 cello-b = \new Voice \relative c {
     \override Score.RehearsalMark.self-alignment-X = #LEFT
     \time 2/4
@@ -10,7 +26,7 @@ cello-b = \new Voice \relative c {
 
     g8. \upbow ^\markup { \small \italic "warm, grand" } ~ \open \f %{ _( %} \tuplet 3/2 { g32 d'-- a'-- } d4~
     | d8~ \> 32. %{ ) %} \p \fermata a64 ( g d e a d8 \< ~ \tuplet 3/2 { d16 ) a-- d,-- }
-    | \acciaccatura { <g, d' a'>8 } d''4 \f \> ~ 4~ \p
+    | \slashedGrace <g, \laissezVibrer d' \laissezVibrer a'>8 d''4 \f \> ~ 4~ \p
     | d8 [ e128 ( d e d~ ) d32~ d16~ ] 4~
     | \time 3/4 8~ \< 16
         \tuplet 3/2 { a32^\markup { \small \italic "ad lib., inflorescent" } ( d, g, ) }
@@ -45,8 +61,8 @@ cello-b = \new Voice \relative c {
             }
         r32 \clef "tenor" a''64 ( \p \< d e a g f! e4 \mp \>
     | \time 2/4 d8 \p ) r8 d128 \mp [ ( c d c~ ) c32~ c16. ( \< r32 b16-- ) ]
-    | a8-- \espressivo \mf ( \clef "bass"
-        g,-- \mp )
+    | a8-- \espressivo \mf \> ( \clef "bass"
+        g,-- \! )
         r g'---> \f \downbow
     | f---> \downbow
             \tag #'sounding { f,8---> \downbow }
@@ -58,19 +74,21 @@ cello-b = \new Voice \relative c {
         g16 \open \p \laissezVibrer fis''8-- \pp \< ( e16-- )
     | d8-- \p \fermata \breathe r8 \mark "string."
         \tuplet 3/2 { <a a>8-- \downbow \mf \< <a b>-- \upbow ( <a c!>-- ) } 
-    | \tempo 8 = 88-92
-        <a d>16-- \upbow \ff
-                \tag #'sounding { <d,, g>8-> \sf \downbow }
-                \tag #'transposing { <\trp e g>8-> \sf \downbow }
-        r16 r c''!8 \sf
-            \tag #'sounding { f,,!16 }
-            \tag #'transposing { \trp g16 }
-    | r16 bes'8 \sf
-            \tag #'sounding { bes,,16 \mark \poco-allarg \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 } }
-            \tag #'transposing {
-                \trp c,,16 \mark \poco-allarg \tuplet 3/2 { \trp f!8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
-            }
-    | \acciaccatura { gis8^> } \mark \tempo-one a4. \harmonic \p \clef "bass"
+    |
+        \transposing-example
+%        \tempo 8 = 88-92
+%        <a d>16-- \upbow \ff
+%                \tag #'sounding { <d,, g>8-> \sf \downbow }
+%                \tag #'transposing { <\trp e g>8-> \sf \downbow }
+%        r16 r c''!8 \sf
+%            \tag #'sounding { f,,!16 }
+%            \tag #'transposing { \trp g16 }
+%    | r16 bes'8 \sf
+%            \tag #'sounding { bes,,16 \mark \poco-allarg \tuplet 3/2 { ees8 \rfz \> ( d'8. ) \clef "tenor" d'16 } }
+%            \tag #'transposing {
+%                \trp c,,16 \mark \poco-allarg \tuplet 3/2 { \trp f!8 \rfz \> ( d'8. ) \clef "tenor" d'16 }
+%            }
+%    | \acciaccatura { gis8^> } \mark \tempo-one a4. \harmonic \p \clef "bass"
             \tag #'sounding { d,,,8-. \sf }
             \tag #'transposing { \trp e8-. \sf }
     | \clef "tenor" \acciaccatura { g''!^> } a4. \harmonic \p \clef "bass"
@@ -111,21 +129,22 @@ cello-b = \new Voice \relative c {
     | \time 3/4
             \tag #'sounding {
                 <
-                    bes,
-                    \laissezVibrer g'
-                    \laissezVibrer d'
-                    \laissezVibrer a'
+                    bes, \laissezVibrer
+                    g' \laissezVibrer
                 >8 \ff
             }
             \tag #'transposing {
                 <
                     \tweak NoteHead.style #'diamond c \laissezVibrer
                     g' \laissezVibrer
-                    d' \laissezVibrer
-                    a'
                 >8 \ff
             }
-        \clef "tenor" d''8~ 4~ \> d8
+            \grace
+                <
+                    d' \laissezVibrer
+                    a'
+                >8
+            d'8~ 4~ \> d8
         \once \override Hairpin.to-barline = ##f 
             g, \( ( \p \<
     | \time 2/4
@@ -137,7 +156,7 @@ cello-b = \new Voice \relative c {
             \tag #'sounding { d,8.~ \cresc ( d64 }
             \tag #'transposing { \trp e8.~ \cresc ( \trp e64 }
         d' d a' d4~
-    | d8.~ ) 64 \p a64 ( d, a' d8~ \> \tuplet 3/2 { d16 a-. d,-. ) }
+    | d8.~ 64 ) \p a64 ( d, a' d8~ \> \tuplet 3/2 { d16 a-. d,-. ) }
     | <<
         \new Voice {
             \voiceOne

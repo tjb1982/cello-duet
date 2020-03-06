@@ -9,9 +9,12 @@
 #(set-default-paper-size "b4")
 
 composer = "Tom Brennan"
-main-title = "Sonata"
+main-title = "Sonata for Two Cellos"
 subtitle-mass = "I: Aria, \"the mass of the mechanics\""
 subtitle-grave = "III. Saraband"
+
+score-sounding = "score (sounding)"
+score-transposing = "score (transposing)"
 
 poet = "Sarah Mangold"
 
@@ -19,8 +22,23 @@ poet = "Sarah Mangold"
     \header {
         tagline = ""
         title = \main-title
-        composer = \composer
-        instrument = "score (sounding)"
+    }
+    \paper {
+        print-all-headers = ##t
+    }
+
+    \bookpart {
+        \header {
+            title = ""
+        }
+        \markup {
+            \column {
+                \fontsize #6 \bold \main-title
+                "(2019—2020)"
+                \null
+                "by Tom Brennan"
+            }
+        }
     }
 
     \bookpart {
@@ -28,13 +46,12 @@ poet = "Sarah Mangold"
     }
 
     \bookpart {
+        \header {
+            instrument = \score-sounding
+        }
         \paper {
             system-system-spacing =
                 #'((basic-distance . 25))
-        }
-        \header {
-            subtitle = \subtitle-mass
-            poet = \poet
         }
         \mass-of-the-mechanics-score
     }
@@ -48,7 +65,7 @@ poet = "Sarah Mangold"
             ragged-last = ##t
         }
         \header {
-            subtitle = \subtitle-grave
+            instrument = \score-sounding
         }
         \grave-score-intro
         \grave-score-a-sub-one
@@ -66,9 +83,7 @@ poet = "Sarah Mangold"
                 #'((basic-distance . 25))
         }
         \header {
-            subtitle = "I: Aria, \"the mass of the mechanics\""
-            poet = "Sarah Mangold"
-            instrument = "score (transposing)"
+            instrument = \score-transposing
         }
         \mass-of-the-mechanics-score-tr
     }
@@ -82,8 +97,7 @@ poet = "Sarah Mangold"
             ragged-last = ##t
         }
         \header {
-            subtitle = "III. Saraband"
-            instrument = "score (transposing)"
+            instrument = \score-transposing
         }
         \grave-score-intro-tr
         \grave-score-a-sub-one

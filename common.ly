@@ -1,5 +1,5 @@
-instrument-names = #'((vc1 . ("Violoncello I" "I"))
-           (vc2 . ("Violoncello II" "II")))
+instrument-names = #'((vc1 . ("Cello I" "I"))
+           (vc2 . ("Cello II" "II")))
 vc-one-names = #(assoc-ref instrument-names 'vc1)
 vc-two-names = #(assoc-ref instrument-names 'vc2)
 vc-one-name = #(car vc-one-names)

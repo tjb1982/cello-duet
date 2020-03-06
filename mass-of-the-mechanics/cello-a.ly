@@ -31,10 +31,10 @@ cello-a =
     \set melismaBusyProperties = #'()
     | R2.
     |
-        r8 \clef "bass" e,,16-- \mp ( d-- ) c8 \laissezVibrer r8
-        r8 \clef "treble" e''--^\markup {\small \italic ord.} \p \<
+        r4 r4
+        r8 \clef "treble" e--^\markup {\small \italic ord.} \p \<
     | f!8-- [ \( r16 g16-- \) ] a8-- \mp \< \( b-- \)
-    | cis-- \espressivo \mf ( d-- ) \mp r e---> \f \downbow
+    | cis-- \espressivo \mf \> ( d-- ) \! r e---> \f \downbow
     | f!---> \downbow g---> \downbow r8 \mark "poco riten." e,8~ \( \mp
     | e8. fis16
         \unset melismaBusyProperties
@@ -82,14 +82,14 @@ cello-a =
         \new Voice {
             \voiceTwo
             r4 d,4 ( \open
-            | d8 ) r8 r4
+            | r2 )
             | r8 \!
         }
     >> a8 \rest a4 \rest \bar "|." 
 }
 \addlyrics {
     a way to use the dic -- tion -- a -- ry or your int' rest _
-    the world's long -- est float -- ing bridge _ _ _
+    the world's long -- est float -- ing bridge
     plac -- ing your hand be -- fore _ the chick -- ens
     young _ and var -- i -- a -- ble read -- ings with new -- er mes -- sag -- es __ _
     dis -- per -- sion dis -- per -- sion

@@ -13,7 +13,7 @@ music = {
         }
         \new Staff \with {
                 instrumentName = \markup {
-                    \column {
+                    \center-column {
                         \vc-two-name
                         \line { (A, D, G, B \small \flat) }
                     }
@@ -27,7 +27,16 @@ music = {
     >>
 }
 
+poet = "Sarah Mangold"
+title = "I: Aria, \"the mass of the mechanics\""
+
 mass-of-the-mechanics-score = \score {
+    \header {
+        title = \title
+        poet = \poet
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'transposing \music
     \layout {
         indent = \main-indent
@@ -36,6 +45,12 @@ mass-of-the-mechanics-score = \score {
 }
 
 mass-of-the-mechanics-score-tr = \score {
+    \header {
+        title = \title
+        poet = \poet
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'sounding \music
     \layout {
         indent = \main-indent

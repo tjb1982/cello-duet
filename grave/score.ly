@@ -11,7 +11,7 @@ music = {
         } { \cello-a }
         \new Staff \with {
             instrumentName = \markup {
-                \column {
+                \center-column {
                     \vc-two-name
                     \line { (A, D, G, B \small \flat) }
                 }
@@ -24,12 +24,22 @@ music = {
 }
 grave-score-intro = \score {
     \new StaffGroup \removeWithTag #'transposing \music
+    \header {
+        title = "III. Saraband"
+        composer = ""
+        instrument = ""
+    }
     \layout {
         indent = \main-indent
     }
 }
 grave-score-intro-tr = \score {
     \new StaffGroup \removeWithTag #'sounding \music
+    \header {
+        title = "III. Saraband"
+        composer = ""
+        instrument = ""
+    }
     \layout {
         indent = \main-indent
     }
@@ -37,6 +47,11 @@ grave-score-intro-tr = \score {
 
 
 grave-score-a-sub-one = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup {
         <<
             \new Staff \with {
@@ -68,12 +83,22 @@ music = {
     >>
 }
 grave-score-a-sub-two = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'transposing \music
     \layout {
         indent = \main-indent
     }
 }
 grave-score-a-sub-two-tr = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'sounding \music
     \layout {
         indent = \main-indent
@@ -100,6 +125,11 @@ music = {
     >>
 }
 grave-score-b = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'transposing \music
     \layout {
         indent = \short-indent
@@ -107,6 +137,11 @@ grave-score-b = \score {
     }
 }
 grave-score-b-tr = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'sounding \music
     \layout {
         indent = \short-indent
@@ -116,6 +151,11 @@ grave-score-b-tr = \score {
 
 
 grave-score-c-sub-one = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup {
         <<
             \new Staff \with {
@@ -147,12 +187,22 @@ music = {
     >>
 }
 grave-score-c-sub-two = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'transposing \music
     \layout {
         indent = \main-indent
     }
 }
 grave-score-c-sub-two-tr = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'sounding \music
     \layout {
         indent = \main-indent
@@ -179,6 +229,11 @@ music = {
     >>
 }
 grave-score-d = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'transposing \music
     \layout {
         indent = \short-indent
@@ -186,6 +241,11 @@ grave-score-d = \score {
     }
 }
 grave-score-d-tr = \score {
+    \header {
+        title = ""
+        composer = ""
+        instrument = ""
+    }
     \new StaffGroup \removeWithTag #'sounding \music
     \layout {
         indent = \short-indent
