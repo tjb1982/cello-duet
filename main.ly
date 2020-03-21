@@ -45,37 +45,6 @@ poet = "Sarah Mangold"
         \performance-notes
     }
 
-    \bookpart {
-        \header {
-            instrument = \score-sounding
-        }
-        \paper {
-            system-system-spacing =
-                #'((basic-distance . 25))
-        }
-        \mass-of-the-mechanics-score
-    }
-
-    \bookpart {
-        \paper {
-            score-system-spacing =
-                #'((basic-distance . 23))
-            system-system-spacing =
-                #'((basic-distance . 20))
-            ragged-last = ##t
-        }
-        \header {
-            instrument = \score-sounding
-        }
-        \grave-score-intro
-        \grave-score-a-sub-one
-        \grave-score-a-sub-two
-        \grave-score-b
-        \grave-score-c-sub-one
-        \grave-score-c-sub-two
-        \grave-score-d
-    }
-
     %%%% transposing
     \bookpart {
         \paper {
@@ -107,6 +76,40 @@ poet = "Sarah Mangold"
         \grave-score-c-sub-two-tr
         \grave-score-d-tr
     }
+    %\transposing
+
+    %%%% sounding
+    \bookpart {
+        \header {
+            instrument = \score-sounding
+        }
+        \paper {
+            system-system-spacing =
+                #'((basic-distance . 25))
+        }
+        \mass-of-the-mechanics-score
+    }
+
+    \bookpart {
+        \paper {
+            score-system-spacing =
+                #'((basic-distance . 23))
+            system-system-spacing =
+                #'((basic-distance . 20))
+            ragged-last = ##t
+        }
+        \header {
+            instrument = \score-sounding
+        }
+        \grave-score-intro
+        \grave-score-a-sub-one
+        \grave-score-a-sub-two
+        \grave-score-b
+        \grave-score-c-sub-one
+        \grave-score-c-sub-two
+        \grave-score-d
+    }
+    %\sounding
 
 }
 
